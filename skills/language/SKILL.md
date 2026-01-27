@@ -52,6 +52,9 @@ languages/
 Currently available:
 - `languages/java/` -- Java, Spring, Lombok
 - `languages/java/environments/` -- Minecraft modding
+- `languages/python/` -- Python
+- `languages/javascript/` -- JavaScript
+- `languages/html/` -- HTML
 
 ## Environments
 
