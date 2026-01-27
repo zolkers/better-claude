@@ -60,6 +60,79 @@ When creating branches:
 - Commit messages are concise and focused on the "why", not the "what".
 - Use conventional commit format if the project already uses it, otherwise keep it simple.
 
+## Gitignore
+
+On project init or first commit, ensure a `.gitignore` exists. If not, create one based on the detected language/framework.
+
+**Always ignore:**
+```
+# IDE
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Plugin
+.b-claude/
+
+# Dependencies
+node_modules/
+vendor/
+```
+
+**Java -- add:**
+```
+# Build
+target/
+build/
+out/
+*.class
+*.jar
+*.war
+*.ear
+
+# Gradle
+.gradle/
+gradle-app.setting
+
+# Maven
+pom.xml.tag
+pom.xml.releaseBackup
+
+# Logs
+*.log
+```
+
+**JavaScript/TypeScript -- add:**
+```
+dist/
+build/
+coverage/
+*.tsbuildinfo
+.env
+.env.*
+```
+
+**Python -- add:**
+```
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+.env
+```
+
+If the project already has a `.gitignore`, review it and suggest missing entries based on the detected stack. Never overwrite an existing `.gitignore` without user approval.
+
 ## Process
 
 ### Step 1: Identity
