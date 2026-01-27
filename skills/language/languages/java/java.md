@@ -4,9 +4,9 @@
 
 Apply SOLID principles. Follow SonarQube conventions strictly.
 
-### Optionnal (depends if the user accepts or not)
-- Declare explicit types and avoid `var` unless the user says otherwise; 
+### Optional (depend on if the user accepts or not)
 
+- Declare explicit types and avoid `var` unless the user says otherwise;
 
 ### Structure & Complexity
 
@@ -225,4 +225,4 @@ Business logic in `domain/` has zero dependency on frameworks. All external conc
 - Every utility function should have a unit test.
 - Every public API/Service method should be testable in isolation.
 - Use Mocks/Spies for network requests or external dependencies.
-- Maybe for environments like modding ( like minecraft modding ) Tests wont be doable on minecraft's bootstrap, only test class with no direct depedencies
+- Maybe for environments like modding ( like minecraft modding ) Tests won't be doable on minecraft's bootstrap, only test class with no direct depedencies
