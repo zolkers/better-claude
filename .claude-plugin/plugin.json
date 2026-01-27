@@ -1,0 +1,13 @@
+{
+  "name": "b-claude",
+  "description": "Claude Code plugin for project analysis, planning, guided workflows, code review, and git management",
+  "version": "0.1.0",
+  "author": {
+    "name": "",
+    "email": ""
+  },
+  "homepage": "",
+  "repository": "",
+  "license": "MIT",
+  "keywords": ["skills", "planning", "workflow", "code-review", "java", "git"]
+}
