@@ -4,6 +4,10 @@
 
 Apply SOLID principles. Follow SonarQube conventions strictly.
 
+### Optionnal (depends if the user accepts or not)
+- Declare explicit types and avoid `var` unless the user says otherwise; 
+
+
 ### Structure & Complexity
 
 - Max 3 nested statements of any type.
@@ -62,6 +66,7 @@ public class Screen extends com.example.Screen {
 - Use early returns for guard clauses -- avoid `else` after `return`.
 - Boolean method names read as questions: `isEmpty()`, `hasPermission()`, `canExecute()`.
 - Split long regex -- cognitive complexity matters.
+- prefer descriptive names over one-letter identifiers.
 
 ### Reuse & Patterns
 

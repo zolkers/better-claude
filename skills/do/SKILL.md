@@ -11,6 +11,8 @@ Execute an existing plan. Checks for `.b-claude/plan.md` first -- if no plan exi
 
 ## Process
 
+- If requirements are unclear or infeasible, request clarification before proceeding.
+
 ### Step 1: Check for Plan
 
 1. Look for `.b-claude/plan.md` in the project root
