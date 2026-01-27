@@ -48,10 +48,10 @@ languages/
         └── minecraft-modding.md   # Minecraft modding (Fabric/Forge/NeoForge)
 ```
 
-Currently available:
+Currently available (files md always are in lowercase):
 - `languages/java/` -- Java, Spring, Lombok
 - `languages/java/environments/` -- Minecraft modding
-- `languages/python/` -- Python
+- `languages/python/` -- Python, Turtle graphics
 - `languages/javascript/` -- JavaScript
 - `languages/html/` -- HTML
 
