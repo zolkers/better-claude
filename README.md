@@ -81,22 +81,22 @@ Saved to `.b-claude/preferences.md` in the project root.
 
 ## Installation
 
-In Claude Code, run:
+Add the marketplace:
 
-```
-/plugin marketplace add zolkers/better-claude
-```
-
-Then install the plugin:
-
-```
-/plugin install b-claude@better-claude
+```bash
+claude plugin marketplace add zolkers/better-claude
 ```
 
-To update later:
+Install the plugin:
 
+```bash
+claude plugin install b-claude@better-claude
 ```
-/plugin update b-claude@better-claude
+
+Update later:
+
+```bash
+claude plugin update b-claude@better-claude
 ```
 
 Restart Claude Code. The skills will be available as `/b-claude:plan`, `/b-claude:do`, etc.

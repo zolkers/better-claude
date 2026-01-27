@@ -1,20 +1,23 @@
 {
   "name": "better-claude",
-  "description": "Marketplace for b-claude plugin - project analysis, planning, guided workflows, code review, and git management",
   "owner": {
     "name": "riege",
     "email": "riegertvictor@gmail.com"
   },
+  "metadata": {
+    "description": "Plugin for project analysis, planning, guided workflows, code review, and git management",
+    "version": "0.1.0"
+  },
   "plugins": [
     {
       "name": "b-claude",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/zolkers/better-claude.git"
+      },
       "description": "Project analysis, planning, guided workflows, code review, and git management",
       "version": "0.1.0",
-      "source": "./",
-      "author": {
-        "name": "riege",
-        "email": "riegertvictor@gmail.com"
-      }
+      "strict": false
     }
   ]
 }
