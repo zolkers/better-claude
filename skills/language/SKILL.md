@@ -69,3 +69,4 @@ When loading conventions:
 3. Load matching framework guides (framework conventions override where they conflict)
 4. Detect environments from `languages/<lang>/environments/`
 5. Load matching environment guides on top (environment conventions have highest priority)
+6. please announce what you detected so the user isn't confused
