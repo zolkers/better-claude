@@ -1,9 +1,9 @@
 {
-  "name": "b-claude-marketplace",
-  "description": "Marketplace for b-claude plugin",
+  "name": "better-claude",
+  "description": "Marketplace for b-claude plugin - project analysis, planning, guided workflows, code review, and git management",
   "owner": {
-    "name": "",
-    "email": ""
+    "name": "riege",
+    "email": "riegertvictor@gmail.com"
   },
   "plugins": [
     {
@@ -12,8 +12,8 @@
       "version": "0.1.0",
       "source": "./",
       "author": {
-        "name": "",
-        "email": ""
+        "name": "riege",
+        "email": "riegertvictor@gmail.com"
       }
     }
   ]
