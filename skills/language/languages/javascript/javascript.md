@@ -95,6 +95,8 @@ const calculateTotal = (price, taxRate) => price * (1 + taxRate);
 
 ## Questions to Ask
 
+- Do you want code comments ?
+- Do you want documentation ?
 - Is this for the Browser, Node.js, or both (Universal)?
 - Do you want to use TypeScript instead of plain JavaScript?
 - Which module system are we using (ESM or CommonJS)?
