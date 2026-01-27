@@ -1,0 +1,7 @@
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db
+node_modules/
+.b-claude/
