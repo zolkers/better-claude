@@ -136,6 +136,31 @@ class User:
 - Use `unittest.mock.patch` or `pytest-mock` for mocking.
 - Name test files `test_<module>.py`, test functions `test_<behavior>`.
 
+### Documentation (Docstrings)
+
+- Use **Google Style** or **NumPy Style** docstrings for all public modules, classes, and functions.
+- Every function docstring should include `Args:`, `Returns:`, and `Raises:` sections.
+- Use triple double quotes `"""..."""`.
+
+```python
+def calculate_velocity(distance: float, time: float) -> float:
+    """Calculates the average velocity.
+
+    Args:
+        distance: The total distance traveled in meters.
+        time: The total time taken in seconds.
+
+    Returns:
+        The velocity in meters per second.
+
+    Raises:
+        ValueError: If time is zero or negative.
+    """
+    if time <= 0:
+        raise ValueError("Time must be positive")
+    return distance / time
+```
+
 ## Questions to Ask
 
 - Do you want code comments ?
