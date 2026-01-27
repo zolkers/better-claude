@@ -20,6 +20,8 @@ Apply SOLID principles. Follow Clean Code practices and ESLint "standard" or "ai
 - Use strict equality `===` and `!==` instead of `==` and `!=`.
 - Use template literals `` `string ${variable}` `` instead of string concatenation.
 - Use destructuring for objects and arrays to improve readability.
+- Use **Optional Chaining** (`?.`) instead of nested `&&` checks for deeply nested objects.
+- Use **Nullish Coalescing** (`??`) instead of `||` when you specifically want to handle `null` or `undefined` (to avoid issues with falsy values like `0` or `""`).
 
 ### Naming Conventions
 
@@ -35,6 +37,9 @@ Apply SOLID principles. Follow Clean Code practices and ESLint "standard" or "ai
 - Prefer immutability: Use `.map()`, `.filter()`, `.reduce()`, and `.find()` instead of `for` loops.
 - Use default parameters instead of manual null checks.
 - Use the spread operator `...` for shallow copies of arrays and objects.
+- Never mutate function arguments.
+- Use the **Spread operator** (`{...obj}`, `[...arr]`) to update objects or arrays instead of direct mutation.
+- Use `Object.freeze()` for static configuration objects to ensure they cannot be modified at runtime.
 
 ### Async Programming
 
@@ -69,6 +74,22 @@ Apply SOLID principles. Follow Clean Code practices and ESLint "standard" or "ai
 - Avoid global variables to prevent namespace pollution.
 - Always sanitize or validate user input before processing.
 - Use `JSON.parse()` inside a `try/catch` to avoid crashes on malformed strings.
+
+### Documentation
+
+- Use **JSDoc** for complex functions to define parameter types and return values.
+- Document the "Why" for complex logic, not the "How".
+- Use `@deprecated` to mark functions that should no longer be used.
+
+```javascript
+/**
+ * Calculates the total price including tax.
+ * @param {number} price - The base price.
+ * @param {number} taxRate - Tax rate between 0 and 1.
+ * @returns {number} The total price.
+ */
+const calculateTotal = (price, taxRate) => price * (1 + taxRate);
+```
 
 ---
 
