@@ -1,7 +1,7 @@
 {
   "name": "b-claude",
   "description": "Claude Code plugin for project analysis, planning, guided workflows, code review, and git management",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": {
     "name": "riege",
     "email": "riegertvictor@gmail.com"

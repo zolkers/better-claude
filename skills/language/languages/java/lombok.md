@@ -1,5 +1,9 @@
 # Lombok
 
+## Detection
+
+This guide applies when `lombok` is found in `pom.xml` or `build.gradle` dependencies.
+
 ## Conventions
 
 - Prefer `@RequiredArgsConstructor` over `@AllArgsConstructor`.

@@ -208,4 +208,9 @@ com.project/
 
 Business logic in `domain/` has zero dependency on frameworks. All external concerns (DB, web, etc.) live in `infrastructure/`. Use this when domain logic is complex and must stay framework-agnostic.
 
+## Testing
 
+- Every utility function should have a unit test.
+- Every public API/Service method should be testable in isolation.
+- Use Mocks/Spies for network requests or external dependencies.
+- Maybe for environments like modding ( like minecraft modding ) Tests wont be doable on minecraft's bootstrap, only test class with no direct depedencies

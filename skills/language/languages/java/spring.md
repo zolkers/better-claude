@@ -1,5 +1,9 @@
 # Spring
 
+## Detection
+
+This guide applies when `spring-boot`, `spring-framework`, or `org.springframework` is found in `pom.xml` or `build.gradle` dependencies.
+
 ## Annotations
 
 - `@Service`, `@Repository`, `@Controller`, `@RestController` -- use the right stereotype.
@@ -28,6 +32,20 @@
 - Use `application.yml` over `application.properties` for readability.
 - Separate configs per environment: `application-dev.yml`, `application-prod.yml`.
 - Externalize secrets -- never commit credentials, use environment variables or a vault.
+
+## Security (Spring Security)
+
+- Never store passwords in plain text -- use `BCryptPasswordEncoder`.
+- Use method-level security (`@PreAuthorize`, `@Secured`) over URL-based security when possible.
+- Always configure CORS explicitly -- never use `permitAll()` in production.
+- Disable CSRF only for stateless APIs (JWT), never for session-based apps.
+- Use `SecurityFilterChain` bean (modern) over `WebSecurityConfigurerAdapter` (deprecated).
+
+## Scheduling & Async
+
+- Use `@Async` for fire-and-forget tasks -- always return `void` or `CompletableFuture`.
+- Use `@Scheduled` with cron expressions for recurring tasks.
+- Always configure a custom `TaskExecutor` -- never rely on the default single-thread executor.
 
 ## Testing
 
