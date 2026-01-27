@@ -47,6 +47,8 @@ languages/
 
 Currently available:
 - `languages/java/` -- Java, Spring, Lombok
+- `languages/html/` -- Html
+
 
 ## Detection Priority
 
