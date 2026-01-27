@@ -138,6 +138,8 @@ class User:
 
 ## Questions to Ask
 
+- Do you want code comments ?
+- Do you want documentation ?
 - Python version target (3.9+, 3.10+, 3.12+)?
 - Type hints: strict or optional?
 - Linter/formatter: ruff, black, flake8, mypy?
