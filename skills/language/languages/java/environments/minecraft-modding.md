@@ -15,6 +15,7 @@ This environment applies when any of these are found:
 - Do you want mixin support?
 - Client-side only, server-side only, or both?
 - Do you want a config system (Cloth Config, TOML, etc.)?
+- Should we use mod menu API integration ?
 - Should we make a gradle task generating a libs-src folder containing minecraft's code source and any other lib to your liking ?
 
 ### Reliability
