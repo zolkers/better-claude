@@ -86,24 +86,26 @@ Apply SOLID principles. Follow Clean Code practices and ESLint "standard" or "ai
 
 Default structure is **feature-based**.
 
+```
 project/
 ├── src/
-│ ├── features/
-│ │ ├── auth/
-│ │ │ ├── auth.api.js # API calls
-│ │ │ ├── auth.service.js # Business logic
-│ │ │ └── auth.utils.js # Helpers
-│ │ └── user/
-│ ├── shared/
-│ │ ├── components/ # Reusable UI parts
-│ │ ├── hooks/ # (If using React/Alpine)
-│ │ ├── constants/ # UPPER_SNAKE_CASE constants
-│ │ └── utils/ # Global helpers
-│ ├── api/ # Base API / Axios config
-│ └── main.js # Entry point
+│   ├── features/
+│   │   ├── auth/
+│   │   │   ├── auth.api.js       # API calls
+│   │   │   ├── auth.service.js   # Business logic
+│   │   │   └── auth.utils.js     # Helpers
+│   │   └── user/
+│   ├── shared/
+│   │   ├── components/           # Reusable UI parts
+│   │   ├── hooks/                # (If using React/Alpine)
+│   │   ├── constants/            # UPPER_SNAKE_CASE constants
+│   │   └── utils/                # Global helpers
+│   ├── api/                      # Base API / Axios config
+│   └── main.js                   # Entry point
 ├── tests/
 ├── .eslintrc.json
 └── package.json
+```
 
 ---
 

@@ -57,31 +57,25 @@ Apply W3C standards. Prioritize semantic HTML over generic containers. Follow WC
 - **No Inline Scripts**: Keep logic in external `.js` files. Avoid `onclick=""` attributes; use event listeners in JS.
 - **Tables**: Use `<thead>`, `<tbody>`, and `<th>` with the `scope` attribute. Tables are for data only, never for layout.
 
-## Questions to Ask
-
-- What level of accessibility is required (WCAG AA is the standard)?
-- Is this a Multi-Page Application (MPA) or a Single-Page Application (SPA)?
-- What is the CSS strategy (Tailwind, BEM, CSS Modules)?
-- Do we need to support legacy browsers (e.g., Safari 12) or modern "Evergreen" browsers only?
-- Are there specific SEO requirements for structured data (JSON-LD)?
-
 ## Project Structure
 
+```
 project/
-├── index.html # Root landing page
-├── pages/ # Sub-pages
-│ ├── contact.html
-│ └── about.html
+├── index.html              # Root landing page
+├── pages/                  # Sub-pages
+│   ├── contact.html
+│   └── about.html
 ├── assets/
-│ ├── img/ # Compressed images & SVGs
-│ ├── fonts/ # Local webfont files (woff2)
-│ └── icons/ # UI icons
-├── css/ # Stylesheets
-│ ├── main.css
-│ └── variables.css
-└── js/ # Scripts
-├── main.js
-└── utils/ # Helper scripts
+│   ├── img/                # Compressed images & SVGs
+│   ├── fonts/              # Local webfont files (woff2)
+│   └── icons/              # UI icons
+├── css/                    # Stylesheets
+│   ├── main.css
+│   └── variables.css
+└── js/                     # Scripts
+    ├── main.js
+    └── utils/              # Helper scripts
+```
 
 ## Boilerplate Example
 
