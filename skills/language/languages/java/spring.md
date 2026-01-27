@@ -19,6 +19,14 @@ This guide applies when `spring-boot`, `spring-framework`, or `org.springframewo
 - Always define `@JoinColumn` explicitly on relationship mappings.
 - Use `@CreatedDate` / `@LastModifiedDate` with Spring Data auditing for timestamps.
 
+## Pagination & Sorting
+
+- Never return a full `List` from an API if the table can grow beyond 100 entries: use `Page<T>` or `Slice<T>`.
+- Accept the `Pageable` argument directly in `@RestController` methods to leverage Spring Data's automatic binding.
+- Use `Slice` instead of `Page` if calculating the total element count (`count` query) is not necessary (improves performance).
+- Always define a default `Sort` to ensure consistent result ordering.
+- Repository methods for large datasets must return `Page<T>` or `Slice<T>` instead of `List<T>`.
+
 ## REST Conventions
 
 - Use proper HTTP methods: `GET` for reads, `POST` for creates, `PUT` for full updates, `PATCH` for partial, `DELETE` for removal.

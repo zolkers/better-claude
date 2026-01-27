@@ -60,6 +60,13 @@ public class Screen extends com.example.Screen {
 - Prefer immutable objects -- `final` fields, no setters.
 - Use `List.of()`, `Map.of()`, or `Collections.unmodifiableList()` for immutable collections.
 
+### Records (Java 16+)
+
+- Use `record` for DTOs, command objects, and any data carrier.
+- Prefer `record` over Lombok `@Value` classes if the project uses Java 16 or higher.
+- Use **compact constructors** for validation or data normalization (e.g., `public UserRecord { Objects.requireNonNull(email); }`).
+- Avoid putting complex business logic inside a record; keep them focused on data.
+
 ### Code Clarity
 
 - No magic numbers -- extract to named constants.
