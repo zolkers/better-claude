@@ -14,7 +14,7 @@ Review code changes against project conventions and language-specific rules. Pro
 ### Step 1: Gather Context
 
 1. Check for `.b-claude/preferences.md` -- load user preferences
-2. Detect project language(s)
+2. Detect project language(s) and ask questions from the language sections if deemed necessary
 3. Load matching `languages/<lang>.md` conventions
 4. Identify changed files (via `git diff`, staged changes, or user-specified files)
 

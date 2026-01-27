@@ -14,7 +14,7 @@ Analyze the current project and create an implementation plan for the user's req
 ### Phase 1: Project Analysis
 
 1. Scan the project structure (directories, files)
-2. Detect languages used (by extensions, config files)
+2. Detect languages used (by extensions, config files) and ask questions from the language sections if deemed necessary
 3. Read config files: `pom.xml`, `build.gradle`, `package.json`, `Dockerfile`, etc.
 4. Identify architecture, frameworks, dependencies
 5. Check for `.b-claude/preferences.md` -- if it exists, load language preferences

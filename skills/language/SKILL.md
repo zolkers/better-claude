@@ -15,8 +15,7 @@ When the user invokes `/b-claude:language`:
 
 1. Ask which language to configure (or detect from project)
 2. Ask preference questions:
-   - Code comments: yes/no, style?
-   - Documentation (javadoc, docstrings, etc.): yes/no, level of detail?
+   - Ask questions from the language sections if deemed necessary
    - Naming conventions
    - Any other language-specific preferences
 3. Save to `.b-claude/preferences.md`
