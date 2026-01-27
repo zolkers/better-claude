@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "Plugin for project analysis, planning, guided workflows, code review, and git management",
-    "version": "0.2.0"
+    "version": "0.2.1"
   },
   "plugins": [
     {
@@ -16,7 +16,7 @@
         "url": "https://github.com/zolkers/better-claude.git"
       },
       "description": "Project analysis, planning, guided workflows, code review, and git management",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "strict": false
     }
   ]
