@@ -37,6 +37,7 @@ Write `.b-claude/plan.md` with:
 
 ### Languages
 <!-- Detected languages and proportions -->
+ensure questions from the question section are asked if necessary
 
 ### Tech Stack
 <!-- Frameworks, key dependencies -->
