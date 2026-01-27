@@ -2,7 +2,8 @@
 
 ## Conventions
 
-Follow PEP 8 strictly. Apply Pythonic idioms -- explicit is better than implicit, simple is better than complex.
+Follow PEP 8 strictly. Apply Pythonic idioms -- explicit is better than implicit, simple is better than complex. 
+Prefer **Ruff** for linting and formatting. It replaces Flake8, Black, and isort with much faster performance.
 
 ### Structure & Complexity
 
@@ -56,6 +57,12 @@ def process_items(items: list[str], *, reverse: bool = False) -> list[str]:
 - Use `if not items:` instead of `if len(items) == 0:`.
 - Use `f-strings` for string formatting -- never `%` or `.format()` for new code.
 - Use unpacking: `a, b = func()` instead of `result = func(); a = result[0]`.
+
+### Decorators & Context Managers
+
+- When writing custom decorators, always use `functools.wraps` to preserve function metadata.
+- Use `contextlib.contextmanager` for simple generator-based context managers.
+- Use `yield` in context managers to handle setup and teardown clearly.
 
 ### Error Handling
 
