@@ -111,22 +111,7 @@ public class CreateUserDto {
 }
 ```
 
-**Lombok (if present in project):**
-- Prefer `@RequiredArgsConstructor` over `@AllArgsConstructor`.
-- Use `@Getter` / `@Setter` instead of boilerplate. `@Data` for DTOs.
-- Use `@Builder` for classes with 3+ fields.
-- Use `@Slf4j` for logger injection instead of manual `LoggerFactory.getLogger()`.
-
-**Spring (if present in project):**
-- `@Service`, `@Repository`, `@Controller`, `@RestController` -- use the right stereotype.
-- `@Transactional` on service methods that modify data, not on repository layer.
-- `@Value` or `@ConfigurationProperties` for config -- never hardcode values.
-- `@Autowired` via constructor injection (implicit with single constructor), not field injection.
-
-**JPA (if present in project):**
-- `@Entity`, `@Table`, `@Column` -- always explicit table/column names, don't rely on defaults.
-- `@Enumerated(EnumType.STRING)` -- never store enums as ordinals.
-- Use `@ManyToOne(fetch = FetchType.LAZY)` by default -- eager loading only when justified.
+**Lombok, Spring, JPA:** See dedicated guides in `languages/java/`.
 
 ### Testing
 

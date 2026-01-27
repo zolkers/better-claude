@@ -26,37 +26,31 @@ When the user invokes `/b-claude:language`:
 When writing code and `.b-claude/preferences.md` exists:
 
 1. Read preferences
-2. Check for `languages/<detected-lang>.md`
-3. Check for `frameworks/<detected-framework>.md`
-4. Apply conventions from all sources (language + framework)
+2. Check for `languages/<lang>/<lang>.md` (base language conventions)
+3. Detect frameworks/libraries in the project (e.g. Spring, Lombok, React, etc.)
+4. Load matching guides from `languages/<lang>/` (e.g. `spring.md`, `lombok.md`)
+5. Apply conventions from all sources
 
 ## Language Guides
 
-Language-specific guides are in `languages/`. Each guide defines:
-- Coding conventions
-- Project structure patterns
-- Questions to ask the user for preferences
+Each language has its own folder in `languages/`. The folder contains:
+- `<lang>.md` -- base language conventions, project structure, questions to ask
+- Additional `.md` files for frameworks/libraries specific to that language
+
+```
+languages/
+└── java/
+    ├── java.md       # Base Java conventions
+    ├── spring.md     # Spring / JPA conventions
+    └── lombok.md     # Lombok conventions
+```
 
 Currently available:
-- `languages/java.md`
-
-## Framework Guides
-
-Framework-specific guides are in `frameworks/`. Frameworks are separate from languages because they define their own conventions, patterns, and architecture that go beyond the base language.
-
-For example, React is not just JavaScript -- it has its own component patterns, state management, and project structure. Spring Boot is not just Java -- it has its own annotation conventions, layering, and config patterns.
-
-Each framework guide defines:
-- Architecture and project structure
-- Framework-specific conventions and patterns
-- Common libraries and how to use them
-- Questions to ask the user for preferences
-
-Currently available:
-- *(none yet -- add guides in `frameworks/`)*
+- `languages/java/` -- Java, Spring, Lombok
 
 ## Detection Priority
 
-When both a language and a framework are detected:
-1. Load `languages/<lang>.md` first (base conventions)
-2. Load `frameworks/<framework>.md` on top (framework conventions override where they conflict)
+When loading conventions:
+1. Load `languages/<lang>/<lang>.md` first (base conventions)
+2. Detect which frameworks/libraries are present in the project
+3. Load matching guides on top (framework conventions override where they conflict)
