@@ -81,7 +81,52 @@ Saved to `.b-claude/preferences.md` in the project root.
 
 ## Installation
 
-Add this plugin to your Claude Code configuration or clone the repository and register it as a local plugin.
+### Option 1: Install from GitHub
+
+In Claude Code, run:
+
+```
+/install-plugin https://github.com/zolkers/better-claude
+```
+
+### Option 2: Manual install
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/zolkers/better-claude.git
+```
+
+2. Add the plugin to your Claude Code settings. Edit `~/.claude/settings.json`:
+
+```json
+{
+  "enabledPlugins": {
+    "b-claude@b-claude-marketplace": true
+  }
+}
+```
+
+3. Register the plugin in `~/.claude/plugins/installed_plugins.json`:
+
+```json
+{
+  "version": 2,
+  "plugins": {
+    "b-claude@b-claude-marketplace": [
+      {
+        "scope": "user",
+        "installPath": "/path/to/better-claude",
+        "version": "0.1.0"
+      }
+    ]
+  }
+}
+```
+
+Replace `/path/to/better-claude` with the actual path where you cloned the repo.
+
+4. Restart Claude Code. The skills should now be available as `/b-claude:plan`, `/b-claude:do`, etc.
 
 ## License
 
