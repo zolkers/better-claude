@@ -28,7 +28,7 @@ A Claude Code plugin for composable project workflows -- planning, execution, co
   Phase 3: planify  -> Create .b-claude/plan.md
 
 /b-claude:do
-  -> Reads the plan
+  -> Reads the plan or creates if no plan exist
   -> Asks initial preferences (emojis, git, branch strategy)
   -> Executes step by step
   -> Commits via /b-claude:git if enabled
