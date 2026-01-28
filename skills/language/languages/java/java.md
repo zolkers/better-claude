@@ -65,7 +65,29 @@ public class Screen extends com.example.Screen {
 ### Code Clarity (Java-specific)
 
 - Boolean method names read as questions: `isEmpty()`, `hasPermission()`, `canExecute()`.
-- prefer descriptive names over one-letter identifiers.
+- Prefer descriptive names over one-letter identifiers.
+- Avoid nesting everything in a if condition when it can be avoided for instance:
+
+```java
+private boolean car;
+
+private boolean isCar(){
+    return car;
+}
+//avoid doing this
+public void someMethod() {
+    if(isCar()) {
+        doSomething();
+    }
+}
+
+//do this
+public void anotherMethod() {
+    if(!isCar()) return;
+    doSomething();
+}
+
+```
 
 ### Concurrency
 
