@@ -42,9 +42,11 @@ Each language has its own folder in `languages/`. The folder contains:
 languages/
 ├── _shared/
 │   ├── conventions.md             # Universal rules (all languages inherit)
-│   └── frameworks/                # Frameworks usable across multiple languages
+│   ├── runtimes/                  # Execution environments (cross-language)
+│   │   └── nodejs.md              # Node.js runtime (JS or TS backend)
+│   └── frameworks/                # UI/application frameworks (cross-language)
+│       ├── angular.md             # Angular (TS-first)
 │       ├── react.md               # React (JS or TS)
-│       ├── nodejs.md              # Node.js (JS or TS)
 │       └── vuejs.md               # Vue.js (JS or TS)
 ├── java/
 │   ├── java.md                    # Base Java conventions
@@ -53,22 +55,39 @@ languages/
 │   │   └── lombok.md              # Lombok conventions
 │   └── environments/
 │       └── minecraft-modding.md   # Minecraft modding (Fabric/Forge/NeoForge)
+├── css/
+│   ├── css.md                     # Base CSS conventions, UX/UI standards
+│   └── frameworks/
+│       ├── tailwind.md            # Tailwind CSS
+│       └── bootstrap.md           # Bootstrap
+├── php/
+│   ├── php.md                     # Base PHP conventions (PSR-12, strict types)
+│   └── frameworks/
+│       ├── laravel.md             # Laravel
+│       └── symfony.md             # Symfony
 └── ...
 ```
 
 Currently available (files md always are in lowercase):
-- `languages/_shared/` -- Universal conventions (loaded first for all languages)
-- `languages/_shared/frameworks/` -- Cross-language frameworks: React, Node.js, Vue.js
-- `languages/java/` -- Java
-- `languages/java/frameworks/` -- Java-only: Spring, Lombok
-- `languages/java/environments/` -- Minecraft modding
-- `languages/python/` -- Python
-- `languages/python/libs/` -- Python libs: Turtle graphics
-- `languages/javascript/` -- JavaScript
-- `languages/typescript/` -- TypeScript
-- `languages/html/` -- HTML
-- `languages/css/` -- CSS base conventions, UX/UI standards
-- `languages/css/frameworks/` -- CSS-only: Tailwind CSS, Bootstrap
+
+**Shared (cross-language)**
+- `_shared/conventions.md` -- Universal rules (loaded first for all languages)
+- `_shared/runtimes/` -- Execution environments: Node.js
+- `_shared/frameworks/` -- UI/application frameworks: Angular, React, Vue.js
+
+**Languages**
+- `css/` -- CSS base conventions, UX/UI standards
+- `css/frameworks/` -- Tailwind CSS, Bootstrap
+- `html/` -- HTML base conventions
+- `java/` -- Java base conventions
+- `java/frameworks/` -- Spring, Lombok
+- `java/environments/` -- Minecraft modding
+- `javascript/` -- JavaScript base conventions
+- `php/` -- PHP base conventions (PSR-12, strict typing)
+- `php/frameworks/` -- Laravel, Symfony
+- `python/` -- Python base conventions
+- `python/libs/` -- Turtle graphics
+- `typescript/` -- TypeScript base conventions
 
 ## Environments
 
@@ -85,10 +104,12 @@ All languages inherit from `languages/_shared/conventions.md`. This file contain
 ## Detection Priority
 
 When loading conventions:
-1. Load `languages/_shared/conventions.md` first (universal rules)
-2. Load `languages/<lang>/<lang>.md` (base language conventions)
-3. Detect which frameworks/libraries are present in the project
-4. Load matching framework guides (framework conventions override where they conflict)
-5. Detect environments from `languages/<lang>/environments/`
-6. Load matching environment guides on top (environment conventions have highest priority)
-7. Please announce what you detected so the user isn't confused
+1. Load `_shared/conventions.md` first (universal rules)
+2. Load `<lang>/<lang>.md` (base language conventions)
+3. Detect runtimes (e.g., Node.js for JS/TS backend projects)
+4. Load matching runtime guides from `_shared/runtimes/`
+5. Detect frameworks/libraries in the project (React, Vue, Spring, Tailwind, etc.)
+6. Load matching framework guides from `_shared/frameworks/` or `<lang>/frameworks/`
+7. Detect environments from `<lang>/environments/`
+8. Load matching environment guides (highest priority)
+9. Announce what was detected so the user understands which conventions apply
