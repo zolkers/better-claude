@@ -46,64 +46,6 @@ A Claude Code plugin for composable project workflows -- planning, execution, co
   -> Claude is never credited as co-author
 ```
 
-## Structure
-
-```
-claude-better/
-├── .claude-plugin/
-│   ├── plugin.json
-│   └── marketplace.json
-├── commands/
-│   ├── plan.md
-│   ├── do.md
-│   ├── language.md
-│   ├── code-review.md
-│   └── git.md
-├── skills/
-│   ├── plan/
-│   │   ├── SKILL.md               # Orchestrator: think -> analyze -> planify
-│   │   ├── think.md               # Phase 1: deep questioning
-│   │   ├── analyze.md             # Phase 2: project scanning
-│   │   └── planify.md             # Phase 3: plan creation
-│   ├── do/
-│   │   └── SKILL.md
-│   ├── language/
-│   │   ├── SKILL.md
-│   │   └── languages/
-│   │       ├── _shared/
-│   │       │   ├── conventions.md # Universal rules (all languages inherit)
-│   │       │   └── frameworks/    # Cross-language frameworks
-│   │       │       ├── react.md
-│   │       │       ├── nodejs.md
-│   │       │       └── vuejs.md
-│   │       ├── java/
-│   │       │   ├── java.md
-│   │       │   ├── frameworks/    # Java-only frameworks
-│   │       │   │   ├── spring.md
-│   │       │   │   └── lombok.md
-│   │       │   └── environments/
-│   │       │       └── minecraft-modding.md
-│   │       ├── javascript/
-│   │       │   └── javascript.md
-│   │       ├── typescript/
-│   │       │   └── typescript.md
-│   │       ├── python/
-│   │       │   ├── python.md
-│   │       │   └── turtle-graphics.md
-│   │       └── html/
-│   │           └── html.md
-│   ├── code-review/
-│   │   └── SKILL.md
-│   └── git/
-│       ├── SKILL.md               # Orchestrator: commit, push, branch
-│       ├── commit.md              # Staging + commit workflow
-│       ├── push.md                # Push with safety checks
-│       └── branch.md              # Branch management + strategies
-├── config/
-│   └── preferences.md
-└── README.md
-```
-
 ## Languages Supported
 
 All languages inherit shared conventions from `_shared/conventions.md` (complexity limits, error handling, null safety, testing, logging, etc.).
@@ -116,6 +58,8 @@ All languages inherit shared conventions from `_shared/conventions.md` (complexi
   - Turtle graphics
 - **HTML** -- W3C, WCAG accessibility, semantics, SEO
 - **Cross-language frameworks** -- React, Node.js, Vue.js (JS or TS)
+- **CSS** -- BEM (Block__Element--Modifier) UX/UI responsibility
+  - Tailwind, Boostrap
 
 ## Preferences
 
