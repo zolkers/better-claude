@@ -25,4 +25,4 @@ This environment applies when any of these are found:
 
 ### Maintainability
 
-- Most Minecraft API update radically change rendering and are likely to change of OpenGL version. It is likely better to make layers or adapters instead of purely using minecraft's api in each class of the mod
+- Most Minecraft API update radically change rendering and are likely to change of OpenGL version. It is likely better to make layers or adapters instead of purely using minecraft's api in each class of the mod.
