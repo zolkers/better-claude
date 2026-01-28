@@ -178,13 +178,13 @@ body { font-size: clamp(1rem, 1.2vw, 1.125rem); }
 
 ## Questions to Ask
 
-- Souhaites-tu des commentaires dans le CSS (par section, minimaux, ou aucun) ?
-- Quel niveau d'accessibilite vises-tu (WCAG A, AA, ou AAA) ?
-- Le projet cible-t-il des navigateurs legacy (Safari 12, IE11) ou evergreen uniquement ?
-- Y a-t-il une charte graphique / design system existant (couleurs, typo, spacing) ?
-- Le projet utilise-t-il un pre-processeur (Sass, PostCSS) ou du CSS natif uniquement ?
-- Y a-t-il des contraintes de performance specifiques (Core Web Vitals targets) ?
-- Dark mode requis ?
+- Do you want comments in the CSS (by section, minimal, or none)?
+- What accessibility level are you aiming for (WCAG A, AA, or AAA)?
+- Is the project targeting legacy browsers (Safari 12, IE11) or evergreen browsers only?
+- Is there an existing style guide or design system (colors, typography, spacing)?
+- Does the project use a preprocessor (Sass, PostCSS) or native CSS only?
+- Are there specific performance constraints (Core Web Vitals targets)?
+- Is dark mode required?
 
 ## Project Structure
 

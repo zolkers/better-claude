@@ -115,8 +115,8 @@ tooltips.forEach(el => new bootstrap.Tooltip(el));
 
 ## Questions to Ask
 
-- Bootstrap 5.x exact version ?
-- Import complet ou modulaire (quels composants sont utilises) ?
-- Utilises-tu Sass pour customiser Bootstrap ou uniquement le CSS compile ?
-- Y a-t-il un wrapper framework (react-bootstrap, bootstrap-vue-next, ng-bootstrap) ?
-- Quels composants Bootstrap interactifs sont utilises (modal, dropdown, tooltip, toast, etc.) ?
+- Exact Bootstrap version? (5.x for instance)
+- Full or modular import (which components are being used)?
+- Are you using Sass to customize Bootstrap or only the compiled CSS?
+- Is there a framework wrapper (react-bootstrap, bootstrap-vue-next, ng-bootstrap)?
+- Which interactive Bootstrap components are being used (modals, dropdowns, tooltips, toasts, etc.)?

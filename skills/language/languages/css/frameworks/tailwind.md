@@ -140,8 +140,8 @@ module.exports = {
 
 ## Questions to Ask
 
-- Tailwind v3 ou v4 ?
-- Dark mode par toggle (`class`) ou preference systeme (`media`) ?
-- Quels plugins Tailwind sont utilises (`typography`, `forms`, `container-queries`) ?
-- Y a-t-il un design system Figma avec des tokens a mapper dans le config ?
-- Utilises-tu `prettier-plugin-tailwindcss` pour l'ordre des classes ?
+- Tailwind v3 or v4 or another?
+- Dark mode via manual toggle (class strategy) or system preference (media strategy)?
+- Which Tailwind plugins are being used (typography, forms, container-queries)? 
+- Is there a Figma design system with tokens that need to be mapped in the config?
+- Do you use prettier-plugin-tailwindcss for automatic class sorting?
