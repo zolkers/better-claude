@@ -15,6 +15,8 @@ Follow SonarQube conventions strictly.
 - Max 15 lines per method.
 - Max 30 methods per class.
 - Method parameters and return types should favor interfaces (`List`, `Map`) over implementations (`ArrayList`, `HashMap`).
+- Switch case should always have a default unless it covers entirely a whole enumeration, if the default is empty always comment why (even if the user doesn't want comments)
+- When a method is empty always comment why (even if the user doesn't want comments)
 
 ### Imports & Qualifiers
 
