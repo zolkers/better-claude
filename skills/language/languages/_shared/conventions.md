@@ -15,6 +15,8 @@ if a language overrides one of these rules, keep the language specifics.
 - A function / method is expected to have at most 7 parameters, avoid more
 - Cast one of the expression in equations when necessary
 - In for loops, only one break / continue statement is usually allowed
+- Switch case should always have a default unless it covers entirely a whole enumeration, if the default is empty always comment why (even if the user doesn't want comments)
+- When a method/function is empty always comment why (even if the user doesn't want comments)
 
 ## Code Clarity
 
