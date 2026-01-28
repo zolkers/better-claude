@@ -22,3 +22,7 @@ This environment applies when any of these are found:
 
 - if libs-src exists and contains minecraft mappings or any kind of lib, please check it before any kind of implementation to see if the class exist / the method signature and keep it in memory
 - the user may use a newer version, browsing through web search to understand the context is plainly important.
+
+### Maintainability
+
+- Most Minecraft API update radically change rendering and are likely to change of OpenGL version. It is likely better to make layers or adapters instead of purely using minecraft's api in each class of the mod
