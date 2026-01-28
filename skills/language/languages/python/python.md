@@ -10,6 +10,7 @@ Prefer **Ruff** for linting and formatting. It replaces Flake8, Black, and isort
 ### Structure & Complexity (Python-specific)
 
 - Max 20 lines per function (overrides shared 15-line default).
+- If a function should be empty for now, write the keyword `pass`
 
 ### Naming Conventions
 
