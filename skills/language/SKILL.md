@@ -40,19 +40,31 @@ Each language has its own folder in `languages/`. The folder contains:
 
 ```
 languages/
-└── java/
-    ├── java.md                    # Base Java conventions
-    ├── spring.md                  # Spring / JPA conventions
-    ├── lombok.md                  # Lombok conventions
-    └── environments/
-        └── minecraft-modding.md   # Minecraft modding (Fabric/Forge/NeoForge)
+├── _shared/
+│   ├── conventions.md             # Universal rules (all languages inherit)
+│   └── frameworks/                # Frameworks usable across multiple languages
+│       ├── react.md               # React (JS or TS)
+│       ├── nodejs.md              # Node.js (JS or TS)
+│       └── vuejs.md               # Vue.js (JS or TS)
+├── java/
+│   ├── java.md                    # Base Java conventions
+│   ├── frameworks/                # Java-only frameworks
+│   │   ├── spring.md              # Spring / JPA conventions
+│   │   └── lombok.md              # Lombok conventions
+│   └── environments/
+│       └── minecraft-modding.md   # Minecraft modding (Fabric/Forge/NeoForge)
+└── ...
 ```
 
 Currently available (files md always are in lowercase):
-- `languages/java/` -- Java, Spring, Lombok
+- `languages/_shared/` -- Universal conventions (loaded first for all languages)
+- `languages/_shared/frameworks/` -- Cross-language frameworks: React, Node.js, Vue.js
+- `languages/java/` -- Java
+- `languages/java/frameworks/` -- Java-only: Spring, Lombok
 - `languages/java/environments/` -- Minecraft modding
 - `languages/python/` -- Python, Turtle graphics
 - `languages/javascript/` -- JavaScript
+- `languages/typescript/` -- TypeScript
 - `languages/html/` -- HTML
 
 ## Environments
@@ -63,12 +75,17 @@ Each environment guide has a **Detection** section listing files or dependencies
 
 When an environment is detected, load it on top of the base language and any matching framework guides.
 
+## Shared Conventions
+
+All languages inherit from `languages/_shared/conventions.md`. This file contains universal rules (complexity limits, error handling, null safety, testing, logging, etc.) that apply to every language. Always load it first.
+
 ## Detection Priority
 
 When loading conventions:
-1. Load `languages/<lang>/<lang>.md` first (base conventions)
-2. Detect which frameworks/libraries are present in the project
-3. Load matching framework guides (framework conventions override where they conflict)
-4. Detect environments from `languages/<lang>/environments/`
-5. Load matching environment guides on top (environment conventions have highest priority)
-6. please announce what you detected so the user isn't confused
+1. Load `languages/_shared/conventions.md` first (universal rules)
+2. Load `languages/<lang>/<lang>.md` (base language conventions)
+3. Detect which frameworks/libraries are present in the project
+4. Load matching framework guides (framework conventions override where they conflict)
+5. Detect environments from `languages/<lang>/environments/`
+6. Load matching environment guides on top (environment conventions have highest priority)
+7. Please announce what you detected so the user isn't confused
