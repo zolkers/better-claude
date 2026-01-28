@@ -12,5 +12,6 @@ This guide applies when `lombok` is found in `pom.xml` or `build.gradle` depende
 - Use `@Slf4j` for logger injection instead of manual `LoggerFactory.getLogger()`.
 - Use `@EqualsAndHashCode(callSuper = true)` when extending a class -- never rely on the default.
 - Avoid `@ToString` on entities with lazy-loaded relations -- it triggers unnecessary queries.
-- Use `@Value` (Lombok) for immutable classes -- generates `final` fields, all-args constructor, getters, `equals`, `hashCode`, `toString`.
+- Use `@Value` (Lombok) for immutable classes -- generates `final` fields, all-args constructor, getters, `equals`, `hashCode`, `toString`. 
+  - However, use record class if possible instead of this annotation
 - Prefer `@NoArgsConstructor(access = AccessLevel.PROTECTED)` on JPA entities over public no-arg constructors.
