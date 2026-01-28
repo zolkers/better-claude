@@ -4,7 +4,7 @@ Inherits all rules from `_shared/conventions.md`. Only JavaScript-specific conve
 
 ## Conventions
 
-Follow Clean Code practices and ESLint "standard" or "airbnb" rules. Focus on immutability and modern ES6+ syntax.
+Follow Clean Code practices and ESLint "standard" or "Airbnb" rules. Focus on immutability and modern ES6+ syntax.
 
 ### Variables & Types
 
