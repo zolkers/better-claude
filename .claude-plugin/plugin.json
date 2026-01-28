@@ -1,7 +1,7 @@
 {
   "name": "b-claude",
   "description": "Claude Code plugin for composable project workflows -- planning, execution, code review, language conventions, and git management",
-  "version": "0.3.3",
+  "version": "0.3.3.1",
   "author": {
     "name": "riege",
     "email": "riegertvictor@gmail.com"
