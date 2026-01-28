@@ -12,13 +12,16 @@ if a language overrides one of these rules, keep the language specifics.
 - Max 4 parameters per function -- use an object, DTO, or dataclass beyond that.
 - Avoid ternary nesting -- one level max.
 - Avoid boolean parameters that switch behavior -- use two functions or an enum instead.
+- A function / method is expected to have at most 7 parameters, avoid more
+- Cast one of the expression in multiplications when necessary
+- In for loops, only one break / continue statement is usually allowed
 
 ## Code Clarity
 
 - No magic numbers -- extract to named constants.
 - Use early returns for guard clauses -- avoid `else` after `return`.
 - Boolean names read as questions: `isEmpty`, `hasPermission`, `canExecute`.
-- Prefer descriptive names over abbreviations -- clarity beats brevity.
+- Prefer descriptive names to abbreviations -- clarity beats brevity.
 - Split complex regex -- cognitive complexity matters.
 
 ## Error Handling
