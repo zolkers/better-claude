@@ -66,6 +66,8 @@ Currently available (files md always are in lowercase):
 - `languages/javascript/` -- JavaScript
 - `languages/typescript/` -- TypeScript
 - `languages/html/` -- HTML
+- `languages/css/` -- CSS base conventions, UX/UI standards
+- `languages/css/frameworks/` -- CSS-only: Tailwind CSS, Bootstrap
 
 ## Environments
 
