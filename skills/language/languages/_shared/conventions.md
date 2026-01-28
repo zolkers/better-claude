@@ -45,7 +45,7 @@ if a language overrides one of these rules, keep the language specifics.
 
 - Before writing new code, check for existing utilities that already do the job.
 - Use patterns (builder, factory, etc.) when they fit -- avoid over-engineering.
-- Prefer composition over deep inheritance.
+- Prefer composition to deep inheritance.
 - Apply SOLID principles.
 
 ## Testing
