@@ -62,7 +62,8 @@ Currently available (files md always are in lowercase):
 - `languages/java/` -- Java
 - `languages/java/frameworks/` -- Java-only: Spring, Lombok
 - `languages/java/environments/` -- Minecraft modding
-- `languages/python/` -- Python, Turtle graphics
+- `languages/python/` -- Python
+- `languages/python/libs/` -- Python libs: Turtle graphics
 - `languages/javascript/` -- JavaScript
 - `languages/typescript/` -- TypeScript
 - `languages/html/` -- HTML
