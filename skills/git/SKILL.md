@@ -7,9 +7,9 @@ description: Use when committing, pushing, or managing git operations for the us
 
 ## Overview
 
-Handle all Git operations on behalf of the user. All commits are made under the user's identity -- Claude is never credited.
+Orchestrator for all Git operations. Dispatches to the appropriate sub-module based on what the user needs. All operations are performed under the user's identity -- Claude is never credited.
 
-## Rules
+## Rules (apply to ALL git operations)
 
 - **NEVER add Co-Authored-By for Claude. Strictly forbidden.**
 - Commits belong entirely to the user.
@@ -19,143 +19,40 @@ Handle all Git operations on behalf of the user. All commits are made under the 
 - Always stage specific files -- avoid `git add -A` or `git add .`.
 - Never commit files that may contain secrets (.env, credentials, keys).
 
-## Branch Strategy
+## Sub-Modules
 
-On first run, ask the user which strategy they prefer:
+Dispatch to the right sub-module based on the user's intent:
 
-**Gitflow (default):**
-```
-main            -- production-ready code
-  └── develop   -- integration branch
-       ├── feature/<name>   -- new features
-       ├── bugfix/<name>    -- bug fixes
-       ├── hotfix/<name>    -- urgent production fixes
-       └── release/<name>   -- release preparation
-```
+### Commit
 
-**Trunk-based:**
-```
-main                        -- single source of truth
-  ├── feature/<name>        -- short-lived feature branches
-  └── hotfix/<name>         -- urgent fixes
-```
+Load and follow `commit.md`.
 
-**Simple:**
-```
-main
-  └── dev
-       └── <name>           -- any work branch
-```
+Stage and commit changes. One logical change per commit.
 
-When creating branches:
-- Always branch from the correct base (`develop` for gitflow, `main` for trunk-based).
-- Use lowercase, hyphen-separated names: `feature/user-authentication`, not `feature/UserAuthentication`.
-- Propose the branch name to the user before creating it.
+### Push
 
-## Commit Rules
+Load and follow `push.md`.
 
-- **Every change that has a reason to exist gets its own commit.**
-- Commits must be highly relevant and focused -- one logical change per commit.
-- Never bundle unrelated changes into a single commit.
-- Commit messages are concise and focused on the "why", not the "what".
-- Use conventional commit format if the project already uses it, otherwise keep it simple.
+Push commits to the remote. Safety checks for protected branches.
+
+### Branch
+
+Load and follow `branch.md`.
+
+Create, switch, and manage branches following the configured strategy.
 
 ## Gitignore
 
-On project init or first commit, ensure a `.gitignore` exists. If not, create one based on the detected language/framework.
+On project init or first commit, ensure a `.gitignore` exists. If not, build one by:
 
-**Always ignore:**
-```
-# IDE
-.idea/
-*.iml
-.vscode/
-*.swp
-*.swo
-
-# OS
-.DS_Store
-Thumbs.db
-desktop.ini
-
-# Plugin
-.b-claude/
-
-# Dependencies
-node_modules/
-vendor/
-```
-
-**Java -- add:**
-```
-# Build
-target/
-build/
-out/
-*.class
-*.jar
-*.war
-*.ear
-
-# Gradle
-.gradle/
-gradle-app.setting
-
-# Maven
-pom.xml.tag
-pom.xml.releaseBackup
-
-# Logs
-*.log
-```
-
-**JavaScript/TypeScript -- add:**
-```
-dist/
-build/
-coverage/
-*.tsbuildinfo
-.env
-.env.*
-```
-
-**Python -- add:**
-```
-__pycache__/
-*.py[cod]
-*.egg-info/
-dist/
-build/
-.venv/
-venv/
-.env
-```
+1. Start with the **base gitignore** from `_shared/conventions.md`
+2. Detect project languages
+3. Load the **Gitignore** section from each detected language guide (e.g. `java.md`, `javascript.md`, `python.md`)
+4. Merge all entries into a single `.gitignore`
 
 If the project already has a `.gitignore`, review it and suggest missing entries based on the detected stack. Never overwrite an existing `.gitignore` without user approval.
 
-## Process
-
-### Step 1: Identity
+## Identity
 
 1. Check `.b-claude/preferences.md` for Git config (username, email, remote)
-2. If not found, ask the user:
-   - Git username
-   - Git email
-   - Remote URL (optional -- default to `origin`)
-3. Save to `.b-claude/preferences.md`
-
-### Step 2: Commit
-
-1. Run `git status` to see changes
-2. Run `git diff` to review what will be committed
-3. Propose a commit message to the user (concise, focused on "why")
-4. Wait for user approval or edits
-5. Stage relevant files by name
-6. Commit using the user's identity
-
-### Step 3: Push
-
-1. Only push if the user asks
-2. Confirm the target branch and remote
-3. Warn if pushing to main/master
-4. Push with `-u` flag if tracking is not set up
+2. If not found, ask the user and save to `.b-claude/preferences.md`
