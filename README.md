@@ -59,7 +59,7 @@ All languages inherit shared conventions from `_shared/conventions.md` (complexi
 - **HTML** -- W3C, WCAG accessibility, semantics, SEO
 - **Cross-language frameworks** -- React, Node.js, Vue.js (JS or TS)
 - **CSS** -- BEM (Block__Element--Modifier) UX/UI responsibility
-  - Tailwind, Boostrap
+  - Tailwind, Bootstrap
 
 ## Preferences
 
