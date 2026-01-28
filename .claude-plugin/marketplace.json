@@ -16,7 +16,7 @@
         "url": "https://github.com/zolkers/better-claude.git"
       },
       "description": "Composable project workflows -- planning, execution, code review, language conventions, and git management",
-      "version": "0.3.0",
+      "version": "0.3.3",
       "strict": false
     }
   ]
