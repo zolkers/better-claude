@@ -1,22 +1,20 @@
 # Java
 
+Inherits all rules from `_shared/conventions.md`. Only Java-specific conventions below.
+
 ## Conventions
 
-Apply SOLID principles. Follow SonarQube conventions strictly.
+Follow SonarQube conventions strictly.
 
 ### Optional (depend on if the user accepts or not)
 
 - Declare explicit types and avoid `var` unless the user says otherwise;
 
-### Structure & Complexity
+### Structure & Complexity (Java-specific)
 
-- Max 3 nested statements of any type.
-- Max 2 nested `if` statements.
 - Max 15 lines per method.
 - Max 30 methods per class.
-- Max 4 parameters per method -- use an object/DTO beyond that.
-- Avoid ternary nesting (`a ? b ? c : d : e`) -- one level max.
-- Avoid boolean parameters that switch behavior -- use two methods or an enum instead.
+- Method parameters and return types should favor interfaces (`List`, `Map`) over implementations (`ArrayList`, `HashMap`).
 
 ### Imports & Qualifiers
 
@@ -36,17 +34,14 @@ public class Screen extends com.example.Screen {
 - Use try-with-resources for any `AutoCloseable` (streams, connections, readers).
 - Use `Optional<T>` for methods that may not return a value. Never call `.get()` without `.isPresent()` -- use `.orElse()` / `.orElseThrow()`.
 
-### Logging & Exceptions
+### Logging & Exceptions (Java-specific)
 
 - Always use a logger -- never `exception.printStackTrace()`.
 - Catch specific exceptions -- never generic `Exception` or `Throwable`.
-- Never leave catch blocks empty -- at minimum log the exception.
-- Don't use exceptions for control flow.
 
-### Null Safety
+### Null Safety (Java-specific)
 
 - Never return `null` for a collection -- return `Collections.emptyList()`, `List.of()`, etc.
-- Never pass `null` as a method argument unless the API explicitly expects it.
 
 ### Strings
 
@@ -67,19 +62,10 @@ public class Screen extends com.example.Screen {
 - Use **compact constructors** for validation or data normalization (e.g., `public UserRecord { Objects.requireNonNull(email); }`).
 - Avoid putting complex business logic inside a record; keep them focused on data.
 
-### Code Clarity
+### Code Clarity (Java-specific)
 
-- No magic numbers -- extract to named constants.
-- Use early returns for guard clauses -- avoid `else` after `return`.
 - Boolean method names read as questions: `isEmpty()`, `hasPermission()`, `canExecute()`.
-- Split long regex -- cognitive complexity matters.
 - prefer descriptive names over one-letter identifiers.
-
-### Reuse & Patterns
-
-- Before writing new code, check for existing util classes or methods that already do the job.
-- Use patterns (builder, factory, etc.) when they fit -- but avoid over-engineering.
-- Method parameters and return types should favor interfaces (`List`, `Map`) over implementations (`ArrayList`, `HashMap`).
 
 ### Concurrency
 
@@ -123,9 +109,9 @@ public class CreateUserDto {
 }
 ```
 
-**Lombok, Spring, JPA:** See dedicated guides in `languages/java/`.
+**Lombok, Spring, JPA:** See dedicated guides in `languages/java/frameworks/`.
 
-### Testing
+### Testing (Java-specific)
 
 - Every public method should be testable in isolation.
 
@@ -224,5 +210,30 @@ Business logic in `domain/` has zero dependency on frameworks. All external conc
 
 - Every utility function should have a unit test.
 - Every public API/Service method should be testable in isolation.
-- Use Mocks/Spies for network requests or external dependencies.
 - Maybe for environments like modding ( like minecraft modding ) Tests won't be doable on minecraft's bootstrap, only test class with no direct depedencies
+
+## Gitignore (Java)
+
+Add to the shared base:
+
+```
+# Build
+target/
+build/
+out/
+*.class
+*.jar
+*.war
+*.ear
+
+# Gradle
+.gradle/
+gradle-app.setting
+
+# Maven
+pom.xml.tag
+pom.xml.releaseBackup
+
+# Logs
+*.log
+```

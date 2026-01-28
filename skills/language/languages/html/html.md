@@ -138,3 +138,13 @@ project/
 - **SEO**: Are there specific requirements for structured data (JSON-LD) or specific Open Graph metadata?
 - **JS Integration**: Is the HTML being served statically, or will it be manipulated by a framework (React, Vue, Alpine.js)?
 - **Performance**: Are there specific Core Web Vitals targets (e.g., strict LCP or CLS limits)?
+
+## Gitignore (HTML)
+
+Add to the shared base:
+
+```
+# Build output
+dist/
+build/
+```

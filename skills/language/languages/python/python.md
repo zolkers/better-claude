@@ -1,19 +1,15 @@
 # Python
 
+Inherits all rules from `_shared/conventions.md`. Only Python-specific conventions below.
+
 ## Conventions
 
-Follow PEP 8 strictly. Apply Pythonic idioms -- explicit is better than implicit, simple is better than complex. 
+Follow PEP 8 strictly. Apply Pythonic idioms -- explicit is better than implicit, simple is better than complex.
 Prefer **Ruff** for linting and formatting. It replaces Flake8, Black, and isort with much faster performance.
 
-### Structure & Complexity
+### Structure & Complexity (Python-specific)
 
-- Max 3 nested statements of any type.
-- Max 2 nested `if` statements.
-- Max 20 lines per function.
-- Max 30 methods per class.
-- Max 4 parameters per function -- use a dataclass or dict beyond that.
-- Avoid ternary nesting (`a if b else (c if d else e)`) -- one level max.
-- Avoid boolean parameters that switch behavior -- use two functions or an enum instead.
+- Max 20 lines per function (overrides shared 15-line default).
 
 ### Naming Conventions
 
@@ -64,17 +60,14 @@ def process_items(items: list[str], *, reverse: bool = False) -> list[str]:
 - Use `contextlib.contextmanager` for simple generator-based context managers.
 - Use `yield` in context managers to handle setup and teardown clearly.
 
-### Error Handling
+### Error Handling (Python-specific)
 
-- Catch specific exceptions -- never bare `except:` or `except Exception:`.
-- Never leave except blocks empty -- at minimum `logging.exception()`.
+- Never bare `except:` or `except Exception:`.
 - Use custom exceptions inheriting from a project base exception.
 - Use `raise ... from e` to preserve exception chains.
-- Don't use exceptions for control flow -- use LBYL (look before you leap) or `try/except` only for truly exceptional cases.
 
-### Null Safety
+### Null Safety (Python-specific)
 
-- Never return `None` from a function that returns a collection -- return `[]`, `{}`, etc.
 - Use `Optional[T]` in type hints when `None` is a valid return.
 - Prefer `value or default` for simple defaults, but be careful with falsy values (0, "", False).
 
@@ -112,12 +105,11 @@ class User:
 - Use `__slots__` for classes with many instances to save memory.
 - Use `ABC` and `@abstractmethod` for interfaces that must be implemented.
 
-### Immutability
+### Immutability (Python-specific)
 
 - Use `tuple` over `list` when the collection shouldn't change.
 - Use `frozenset` over `set` for immutable sets.
 - Use `@dataclass(frozen=True)` for immutable data classes.
-- Constants at module level in `UPPER_SNAKE_CASE`.
 
 ### Concurrency
 
@@ -127,16 +119,15 @@ class User:
 - Never share mutable state between threads without locks.
 - Prefer `asyncio.gather()` for concurrent async tasks.
 
-### Logging
+### Logging (Python-specific)
 
 - Use the `logging` module -- never `print()` in production.
 - Configure logging at the application entry point, not in libraries.
 - Use `logging.getLogger(__name__)` in each module.
 - Use lazy formatting: `logger.info("User %s logged in", user_id)` not f-strings in log calls.
 
-### Testing
+### Testing (Python-specific)
 
-- Every public function should be testable in isolation.
 - Use `pytest` over `unittest` -- less boilerplate, better output.
 - Use fixtures for setup/teardown.
 - Use `pytest.raises` for exception testing.
@@ -276,6 +267,25 @@ project/
 ├── tests/
 ├── pyproject.toml
 └── README.md
+```
+
+## Gitignore (Python)
+
+Add to the shared base:
+
+```
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+.env
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+htmlcov/
 ```
 
 If the user prefers **feature-based** (larger applications):

@@ -1,18 +1,10 @@
 # JavaScript
 
+Inherits all rules from `_shared/conventions.md`. Only JavaScript-specific conventions below.
+
 ## Conventions
 
-Apply SOLID principles. Follow Clean Code practices and ESLint "standard" or "airbnb" rules. Focus on immutability and modern ES6+ syntax.
-
-### Structure & Complexity
-
-- Max 3 nested statements of any type.
-- Max 2 nested `if` statements.
-- Max 15 lines per function.
-- Max 30 functions/methods per file.
-- Max 4 parameters per function -- use an object/destructuring beyond that.
-- Avoid ternary nesting (`a ? b ? c : d : e`) -- one level max.
-- Avoid boolean parameters that switch behavior -- use two functions instead.
+Follow Clean Code practices and ESLint "standard" or "airbnb" rules. Focus on immutability and modern ES6+ syntax.
 
 ### Variables & Types
 
@@ -48,12 +40,9 @@ Apply SOLID principles. Follow Clean Code practices and ESLint "standard" or "ai
 - Use `Promise.all()` for concurrent independent operations to improve performance.
 - Never leave a Promise unhandled.
 
-### Error Handling & Logging
+### Error Handling (JS-specific)
 
-- Use a logging library or a wrapper instead of raw `console.log` in production.
 - Throw proper `Error` objects: `throw new Error("message")`.
-- Catch specific errors where possible.
-- Never leave catch blocks empty -- at minimum log the error.
 
 ### DOM Manipulation (Vanilla JS)
 
@@ -75,10 +64,9 @@ Apply SOLID principles. Follow Clean Code practices and ESLint "standard" or "ai
 - Always sanitize or validate user input before processing.
 - Use `JSON.parse()` inside a `try/catch` to avoid crashes on malformed strings.
 
-### Documentation
+### Documentation (JS-specific)
 
 - Use **JSDoc** for complex functions to define parameter types and return values.
-- Document the "Why" for complex logic, not the "How".
 - Use `@deprecated` to mark functions that should no longer be used.
 
 ```javascript
@@ -91,8 +79,6 @@ Apply SOLID principles. Follow Clean Code practices and ESLint "standard" or "ai
 const calculateTotal = (price, taxRate) => price * (1 + taxRate);
 ```
 
----
-
 ## Questions to Ask
 
 - Do you want code comments ?
@@ -102,8 +88,6 @@ const calculateTotal = (price, taxRate) => price * (1 + taxRate);
 - Which module system are we using (ESM or CommonJS)?
 - Which testing framework is preferred (Vitest, Jest, Cypress)?
 - Is there a specific linter/formatter config (ESLint + Prettier)?
-
----
 
 ## Project Structure
 
@@ -130,10 +114,19 @@ project/
 └── package.json
 ```
 
----
+## Testing (JS-specific)
 
-## Testing
+- Use `describe` / `it` blocks for clear test structure.
+- Prefer Vitest or Jest for unit testing.
 
-- Every utility function should have a unit test.
-- Every public API/Service method should be testable in isolation.
-- Use Mocks/Spies for network requests or external dependencies.
+## Gitignore (JavaScript)
+
+Add to the shared base:
+
+```
+dist/
+build/
+coverage/
+.env
+.env.*
+```
