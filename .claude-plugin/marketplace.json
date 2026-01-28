@@ -5,8 +5,8 @@
     "email": "riegertvictor@gmail.com"
   },
   "metadata": {
-    "description": "Plugin for project analysis, planning, guided workflows, code review, and git management",
-    "version": "0.2.1"
+    "description": "Plugin for composable project workflows -- planning, execution, code review, language conventions, and git management",
+    "version": "0.3.0"
   },
   "plugins": [
     {
@@ -15,8 +15,8 @@
         "source": "url",
         "url": "https://github.com/zolkers/better-claude.git"
       },
-      "description": "Project analysis, planning, guided workflows, code review, and git management",
-      "version": "0.2.1",
+      "description": "Composable project workflows -- planning, execution, code review, language conventions, and git management",
+      "version": "0.3.0",
       "strict": false
     }
   ]

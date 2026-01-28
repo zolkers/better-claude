@@ -1,23 +1,31 @@
 # b-claude
 
-A Claude Code plugin for structured project workflows -- analysis, planning, execution, code review, and git management.
+A Claude Code plugin for composable project workflows -- planning, execution, code review, language conventions, and git management.
 
 ## Skills
 
+### Orchestrators (chain sub-skills)
+
 | Command | Description |
 |---------|-------------|
-| `/b-claude:plan` | Analyze the project and create a step-by-step implementation plan |
+| `/b-claude:plan` | Full planning pipeline: think + analyze + planify |
+| `/b-claude:git` | Git operations dispatcher: commit, push, branch |
+
+### Standalone Skills
+
+| Command | Description |
+|---------|-------------|
 | `/b-claude:do` | Execute an existing plan step by step |
 | `/b-claude:language` | Configure coding preferences per language |
 | `/b-claude:code-review` | Review code changes against conventions and best practices |
-| `/b-claude:git` | Commit and push under the user's identity |
 
 ## How It Works
 
 ```
 /b-claude:plan "add user authentication"
-  -> Analyzes project (languages, stack, architecture)
-  -> Creates .b-claude/plan.md
+  Phase 1: think    -> Ask questions, consult language guides
+  Phase 2: analyze  -> Scan project structure, detect stack
+  Phase 3: planify  -> Create .b-claude/plan.md
 
 /b-claude:do
   -> Reads the plan
@@ -34,7 +42,7 @@ A Claude Code plugin for structured project workflows -- analysis, planning, exe
   -> Reports issues (CRITICAL / MAJOR / MINOR) + verdict
 
 /b-claude:git
-  -> Commits and pushes under the user's identity
+  -> Dispatches to commit, push, or branch
   -> Claude is never credited as co-author
 ```
 
@@ -45,30 +53,69 @@ claude-better/
 ├── .claude-plugin/
 │   ├── plugin.json
 │   └── marketplace.json
+├── commands/
+│   ├── plan.md
+│   ├── do.md
+│   ├── language.md
+│   ├── code-review.md
+│   └── git.md
 ├── skills/
 │   ├── plan/
-│   │   └── plan.md
+│   │   ├── SKILL.md               # Orchestrator: think -> analyze -> planify
+│   │   ├── think.md               # Phase 1: deep questioning
+│   │   ├── analyze.md             # Phase 2: project scanning
+│   │   └── planify.md             # Phase 3: plan creation
 │   ├── do/
-│   │   └── do.md
+│   │   └── SKILL.md
 │   ├── language/
-│   │   ├── language.md
+│   │   ├── SKILL.md
 │   │   └── languages/
-│   │       └── java.md
+│   │       ├── _shared/
+│   │       │   ├── conventions.md # Universal rules (all languages inherit)
+│   │       │   └── frameworks/    # Cross-language frameworks
+│   │       │       ├── react.md
+│   │       │       ├── nodejs.md
+│   │       │       └── vuejs.md
+│   │       ├── java/
+│   │       │   ├── java.md
+│   │       │   ├── frameworks/    # Java-only frameworks
+│   │       │   │   ├── spring.md
+│   │       │   │   └── lombok.md
+│   │       │   └── environments/
+│   │       │       └── minecraft-modding.md
+│   │       ├── javascript/
+│   │       │   └── javascript.md
+│   │       ├── typescript/
+│   │       │   └── typescript.md
+│   │       ├── python/
+│   │       │   ├── python.md
+│   │       │   └── turtle-graphics.md
+│   │       └── html/
+│   │           └── html.md
 │   ├── code-review/
-│   │   └── code-review.md
+│   │   └── SKILL.md
 │   └── git/
-│       └── git.md
+│       ├── SKILL.md               # Orchestrator: commit, push, branch
+│       ├── commit.md              # Staging + commit workflow
+│       ├── push.md                # Push with safety checks
+│       └── branch.md              # Branch management + strategies
 ├── config/
 │   └── preferences.md
-├── package.json
 └── README.md
 ```
 
 ## Languages Supported
 
-- **Java** -- SOLID, SonarQube rules, annotations, 4 package structure options
+All languages inherit shared conventions from `_shared/conventions.md` (complexity limits, error handling, null safety, testing, logging, etc.).
 
-More languages can be added in `skills/language/languages/`.
+- **Java** -- SOLID, SonarQube, annotations, Records, 4 package structure options
+  - Spring, Lombok, Minecraft modding environment
+- **JavaScript** -- ESLint, ES6+, async, DOM, modules
+- **TypeScript** -- Strict typing, generics, utility types (inherits JS)
+- **Python** -- PEP 8, Ruff, type hints, dataclasses, scripts
+  - Turtle graphics
+- **HTML** -- W3C, WCAG accessibility, semantics, SEO
+- **Cross-language frameworks** -- React, Node.js, Vue.js (JS or TS)
 
 ## Preferences
 
