@@ -7,58 +7,35 @@ description: Use when starting a new task or feature - analyzes the project and 
 
 ## Overview
 
-Analyze the current project and create an implementation plan for the user's request. Saves results to `.b-claude/plan.md`.
+Full planning pipeline. Chains three phases in order to produce a complete implementation plan saved to `.b-claude/plan.md`.
 
-## Process
+## Pipeline
 
-### Phase 1: Project Analysis
+Execute these phases in order:
 
-1. Scan the project structure (directories, files)
-2. Detect languages used (by extensions, config files) and ask questions from the language sections if deemed necessary
-3. Read config files: `pom.xml`, `build.gradle`, `package.json`, `Dockerfile`, etc.
-4. Identify architecture, frameworks, dependencies
-5. Check for `.b-claude/preferences.md` -- if it exists, load language preferences
+### Phase 1: Think
 
-### Phase 2: Planning
+Load and follow `think.md`.
 
-1. Read the user's request (passed as argument or asked interactively)
-2. Ask clarifying questions if the request is ambiguous (max 3-4 targeted questions)
-3. Build a step-by-step plan with:
-   - What needs to be done
-   - Which files are involved
-   - Dependencies between steps
+Deeply understand the user's request. Ask targeted questions from language guides. Clarify ambiguities. Produce a structured understanding.
 
-### Phase 3: Save
+### Phase 2: Analyze
 
-Write `.b-claude/plan.md` with:
+Load and follow `analyze.md`.
 
-```markdown
-## Analysis
+Scan the project structure. Detect languages, frameworks, architecture, and conventions. Build a complete picture of the codebase.
 
-### Languages
-<!-- Detected languages and proportions -->
-ensure questions from the question section are asked if necessary
+### Phase 3: Planify
 
-### Tech Stack
-<!-- Frameworks, key dependencies -->
+Load and follow `planify.md`.
 
-### Architecture
-<!-- Detected patterns, module structure -->
+Combine the outputs from think and analyze. Create a concrete, step-by-step implementation plan. Save to `.b-claude/plan.md`.
 
-### Conventions
-<!-- Existing conventions in the codebase -->
+## After Planning
 
-## Goal
-<!-- What the user wants to achieve -->
+Once the plan is written to `.b-claude/plan.md` and the user approves it, **ask: "The plan is ready. Do you want to proceed to execution (`/b-claude:do`)?"**
 
-## Steps
-<!-- Numbered implementation checklist -->
-- [ ] Step 1
-- [ ] Step 2
+## Notes
 
-## Preferences
-<!-- Link to .b-claude/preferences.md if it exists -->
-<!-- Link to applicable languages/<lang>.md -->
-```
-
-If a matching `languages/<lang>.md` exists for the detected language, consult it and apply its conventions to the plan.
+- If `.b-claude/preferences.md` exists, load it at the start and skip already-answered questions
+- If a matching `languages/<lang>/<lang>.md` exists, consult it throughout all phases
