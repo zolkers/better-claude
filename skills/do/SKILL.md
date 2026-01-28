@@ -7,7 +7,7 @@ description: Use when ready to execute a planned task - reads the plan and imple
 
 ## Overview
 
-Execute an existing plan. Checks for `.b-claude/plan.md` first -- if no plan exists, proposes to run `/b-claude:plan` instead.
+Execute an existing plan. Checks for `.b-claude/plan.md` first -- if no plan exists, proposes to run `/b-claude:plan` instead. Code review is mandatory at the end.
 
 ## Process
 
@@ -39,7 +39,7 @@ If preferences already exist, skip this step.
 
 1. Read `.b-claude/plan.md`
 2. Read `.b-claude/preferences.md` -- load preferences (emojis, language, etc.)
-3. Check for matching `languages/<lang>.md` based on detected project language
+3. Check for matching `languages/<lang>/<lang>.md` based on detected project language
 
 ### Step 4: Execute
 
@@ -48,13 +48,19 @@ If preferences already exist, skip this step.
 3. For each step:
    - Announce what you're doing
    - Apply language conventions from preferences/language guides
-   - Mark the step as done
+   - Mark the step as done in `.b-claude/plan.md` (check the checkbox)
    - If auto-commit is enabled: commit each meaningful change individually with a relevant message. Every change that has a reason to exist gets its own commit.
 4. If a step is unclear, ask the user before proceeding
 
-### Step 5: Complete
+### Step 5: Code Review (mandatory)
+
+**This step is NOT optional. Always run code review after execution.**
 
 1. Summarize what was done
 2. Note any steps that were skipped or need follow-up
 3. If user opted for auto-commit in preferences, use `/b-claude:git` for all Git operations.
-4. Propose: "Would you like to run `/b-claude:code-review` on the changes?"
+4. **Run `/b-claude:code-review` on all changes made during execution.**
+5. If the code review finds issues:
+   - Fix CRITICAL and MAJOR issues immediately
+   - Present MINOR issues to the user for decision
+   - Re-commit fixes if auto-commit is enabled
