@@ -23,7 +23,7 @@ if a language overrides one of these rules, keep the language specifics.
 - No magic numbers -- extract to named constants.
 - Use early returns for guard clauses -- avoid `else` after `return`.
 - Boolean names read as questions: `isEmpty`, `hasPermission`, `canExecute`.
-- Prefer descriptive names to abbreviations -- clarity beats brevity.
+- Prefer descriptive names to abbreviations -- clarity beats brevity. (for instance: avoid x1 + x2 + x3 + x4 * t * t * t)
 - Split complex regex -- cognitive complexity matters.
 
 ## Error Handling
