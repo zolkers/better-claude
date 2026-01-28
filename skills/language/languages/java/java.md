@@ -66,6 +66,7 @@ public class Screen extends com.example.Screen {
 
 - Boolean method names read as questions: `isEmpty()`, `hasPermission()`, `canExecute()`.
 - Prefer descriptive names over one-letter identifiers.
+- Never declare variables on the same line (int xAxis, yAxis, zAxis; SHOULD NEVER BE DONE)
 - Avoid nesting everything in a if condition when it can be avoided for instance:
 
 ```java
