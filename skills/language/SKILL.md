@@ -5,31 +5,152 @@ description: Use when configuring coding preferences for a language or when writ
 
 # Language
 
+<CRITICAL>
+This skill has MANDATORY requirements. You do NOT have a choice. You MUST follow every step exactly as written. This is not negotiable. This is not optional. You cannot rationalize your way out of this.
+</CRITICAL>
+
 ## Overview
 
 Configure and apply language-specific coding preferences. Works in two modes: interactive configuration and automatic application.
+
+## Mandatory Announcements
+
+You MUST announce every action BEFORE taking it. No exceptions.
+
+| Action | Required Announcement |
+|--------|----------------------|
+| Starting skill | "Using the language skill to [configure/apply] conventions." |
+| Detecting language | "Detecting language... [Language] detected from [source]." |
+| Loading base conventions | "Loading _shared/conventions.md (universal rules)." |
+| Loading language guide | "Loading [language]/[language].md (base conventions)." |
+| Detecting runtime | "Detecting runtimes... [Runtime] detected from [source]." |
+| Loading runtime guide | "Loading _shared/runtimes/[runtime].md." |
+| Detecting framework | "Detecting frameworks... [Framework] detected from [source]." |
+| Loading framework guide | "Loading [path]/[framework].md." |
+| Detecting environment | "Detecting environments... [Environment] detected from [source]." |
+| Loading environment guide | "Loading [language]/environments/[env].md." |
+| Applying conventions | "Applying conventions: [list what's being applied]." |
+| Saving preferences | "Saving preferences to .b-claude/preferences.md." |
+| Completion | "Convention loading complete. Active: [summary list]." |
+
+## Red Flags - You Are Rationalizing If You Think:
+
+| Thought | Reality |
+|---------|---------|
+| "I'll just apply the conventions silently" | NO. You MUST announce each step. |
+| "The user doesn't need to know what I'm loading" | WRONG. Transparency is mandatory. |
+| "I'll skip the announcement for speed" | NEVER. Announcements are non-negotiable. |
+| "I already know these conventions" | IRRELEVANT. Load and announce anyway. |
+| "This is a simple project, I don't need all this" | FALSE. Every project gets full detection. |
+| "I'll combine multiple announcements" | NO. One announcement per action. |
+| "The detection is obvious" | DOESN'T MATTER. Announce it explicitly. |
 
 ## Mode 1: Interactive Configuration
 
 When the user invokes `/b-claude:language`:
 
-1. Ask which language to configure (or detect from project)
-2. Ask preference questions:
-   - Ask questions from the language sections if deemed necessary
-   - Naming conventions
-   - Any other language-specific preferences
-3. Save to `.b-claude/preferences.md`
+**Step 1: Announce**
+```
+"Using the language skill to configure coding preferences."
+```
+
+**Step 2: Detect or Ask**
+- If language is detectable from project files, announce: "Detecting language... [Language] detected from [package.json/composer.json/etc.]."
+- If not detectable, ask: "Which language do you want to configure?"
+- ONE question at a time. Wait for answer before proceeding.
+
+**Step 3: Load and Announce Base Guide**
+```
+"Loading [language]/[language].md (base conventions)."
+```
+
+**Step 4: Ask Questions from Guide**
+- Read the "Questions to Ask" section from the loaded guide.
+- Ask questions ONE AT A TIME.
+- Wait for each answer before asking the next.
+- Announce each answer: "Noted: [preference] = [value]."
+
+**Step 5: Save Preferences**
+```
+"Saving preferences to .b-claude/preferences.md."
+```
+Then save the file.
+
+**Step 6: Confirm Completion**
+```
+"Configuration complete. Preferences saved for [language]."
+```
 
 ## Mode 2: Automatic Application
 
-When writing code and `.b-claude/preferences.md` exists:
+When writing code and `.b-claude/preferences.md` exists, OR when code generation is requested:
 
-1. Read preferences
-2. Check for `languages/<lang>/<lang>.md` (base language conventions)
-3. Detect frameworks/libraries in the project (e.g. Spring, Lombok, React, etc.)
-4. Load matching guides from `languages/<lang>/` (e.g. `spring.md`, `lombok.md`)
-5. Detect environments (see below)
-6. Apply conventions from all sources
+**Step 1: Announce Start**
+```
+"Using the language skill to apply conventions."
+```
+
+**Step 2: Load Universal Conventions**
+```
+"Loading _shared/conventions.md (universal rules)."
+```
+Read the file.
+
+**Step 3: Detect and Announce Language**
+```
+"Detecting language... [Language] detected from [source: file extension / package.json / user request / etc.]."
+```
+
+**Step 4: Load and Announce Language Guide**
+```
+"Loading [language]/[language].md (base conventions)."
+```
+Read the file.
+
+**Step 5: Detect and Announce Runtimes**
+Check for runtime indicators (e.g., Node.js backend, Deno, Bun).
+- If found: "Detecting runtimes... [Runtime] detected from [package.json scripts / server files / etc.]."
+- Then: "Loading _shared/runtimes/[runtime].md."
+- If none: "No specific runtime detected."
+
+**Step 6: Detect and Announce Frameworks**
+Check for framework indicators in package.json, composer.json, build.gradle, etc.
+For EACH framework detected:
+```
+"Detecting frameworks... [Framework] detected from [source]."
+"Loading [path]/[framework].md."
+```
+If none: "No frameworks detected."
+
+**Step 7: Detect and Announce Environments**
+Check for environment indicators (e.g., fabric.mod.json for Minecraft).
+- If found: "Detecting environments... [Environment] detected from [source]."
+- Then: "Loading [language]/environments/[env].md."
+- If none: "No specialized environments detected."
+
+**Step 8: Summarize Active Conventions**
+```
+"Convention loading complete. Active conventions:
+- Universal rules (_shared/conventions.md)
+- [Language] base ([language]/[language].md)
+- [Runtime if any] (_shared/runtimes/[runtime].md)
+- [Framework 1] ([path]/[framework1].md)
+- [Framework 2] ([path]/[framework2].md)
+- [Environment if any] ([language]/environments/[env].md)
+
+Applying these conventions to the code."
+```
+
+**Step 9: Write Code**
+Only NOW do you write the code, following ALL loaded conventions.
+
+## STOP Conditions
+
+STOP and ask the user if:
+- Multiple languages are detected and it's unclear which to use
+- A framework is detected but you're unsure if it applies to the current task
+- The detected environment seems incorrect for the user's request
+- You encounter a conflict between conventions
 
 ## Language Guides
 
@@ -112,4 +233,7 @@ When loading conventions:
 6. Load matching framework guides from `_shared/frameworks/` or `<lang>/frameworks/`
 7. Detect environments from `<lang>/environments/`
 8. Load matching environment guides (highest priority)
-9. Announce what was detected so the user understands which conventions apply
+
+<REMINDER>
+You MUST announce EVERY step. No silent actions. No skipped announcements. No exceptions.
+</REMINDER>
