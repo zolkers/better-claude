@@ -23,38 +23,38 @@ The main workflow skill. Automatically:
 
 You MUST announce every action BEFORE taking it. No exceptions.
 
-| Action | Required Announcement |
-|--------|----------------------|
-| Starting skill | "Using the do skill." |
-| Checking plan | "Checking for existing plan..." |
-| No plan found | "No plan found. Starting planning phase." |
-| Plan found | "Plan found. Resuming execution." |
-| Starting phase | "Phase [N]: [name]" |
-| Loading module | "Loading [module]." |
-| Asking question | "Question: [text]" |
-| Noting answer | "Noted: [summary]." |
-| Detecting | "Detecting [what]... [Result] detected from [source]." |
-| Writing plan | "Writing plan to .b-claude/plan.md." |
-| Executing step | "Executing step [N]: [description]" |
-| Step complete | "Step [N] complete." |
-| Batch complete | "Batch complete. Ready for feedback." |
-| Starting review | "Starting mandatory code review." |
-| Issue found | "Issue found: [severity] - [description]" |
-| Committing | "Committing: [message]" |
-| Complete | "Task complete." |
+| Action          | Required Announcement                                  |
+|-----------------|--------------------------------------------------------|
+| Starting skill  | "Using the do skill."                                  |
+| Checking plan   | "Checking for existing plan..."                        |
+| No plan found   | "No plan found. Starting planning phase."              |
+| Plan found      | "Plan found. Resuming execution."                      |
+| Starting phase  | "Phase [N]: [name]"                                    |
+| Loading module  | "Loading [module]."                                    |
+| Asking question | "Question: [text]"                                     |
+| Noting answer   | "Noted: [summary]."                                    |
+| Detecting       | "Detecting [what]... [Result] detected from [source]." |
+| Writing plan    | "Writing plan to .b-claude/plan.md."                   |
+| Executing step  | "Executing step [N]: [description]"                    |
+| Step complete   | "Step [N] complete."                                   |
+| Batch complete  | "Batch complete. Ready for feedback."                  |
+| Starting review | "Starting mandatory code review."                      |
+| Issue found     | "Issue found: [severity] - [description]"              |
+| Committing      | "Committing: [message]"                                |
+| Complete        | "Task complete."                                       |
 
 ## Red Flags - You Are Rationalizing If You Think:
 
-| Thought | Reality |
-|---------|---------|
-| "I can skip planning" | NO. Planning is mandatory for new tasks. |
-| "I already understand the request" | WRONG. Ask clarifying questions anyway. |
-| "I know this codebase" | FALSE. Analyze it anyway. |
-| "I'll combine steps" | NO. One step at a time. |
-| "Code review is optional" | NEVER. Review is mandatory. |
-| "This is simple" | DOESN'T MATTER. Full process every time. |
-| "I'll announce at the end" | WRONG. Announce BEFORE each action. |
-| "I'll skip the checkpoint" | NO. Every checkpoint is mandatory. |
+| Thought                            | Reality                                  |
+|------------------------------------|------------------------------------------|
+| "I can skip planning"              | NO. Planning is mandatory for new tasks. |
+| "I already understand the request" | WRONG. Ask clarifying questions anyway.  |
+| "I know this codebase"             | FALSE. Analyze it anyway.                |
+| "I'll combine steps"               | NO. One step at a time.                  |
+| "Code review is optional"          | NEVER. Review is mandatory.              |
+| "This is simple"                   | DOESN'T MATTER. Full process every time. |
+| "I'll announce at the end"         | WRONG. Announce BEFORE each action.      |
+| "I'll skip the checkpoint"         | NO. Every checkpoint is mandatory.       |
 
 ## Process
 

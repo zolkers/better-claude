@@ -20,33 +20,33 @@ Internal module for language detection and convention loading. Automatically loa
 
 You MUST announce every action BEFORE taking it. No exceptions.
 
-| Action | Required Announcement |
-|--------|----------------------|
-| Starting skill | "Using the language skill to [configure/apply] conventions." |
-| Detecting language | "Detecting language... [Language] detected from [source]." |
-| Loading base conventions | "Loading _shared/conventions.md (universal rules)." |
-| Loading language guide | "Loading [language]/[language].md (base conventions)." |
-| Detecting runtime | "Detecting runtimes... [Runtime] detected from [source]." |
-| Loading runtime guide | "Loading _shared/runtimes/[runtime].md." |
-| Detecting framework | "Detecting frameworks... [Framework] detected from [source]." |
-| Loading framework guide | "Loading [path]/[framework].md." |
-| Detecting environment | "Detecting environments... [Environment] detected from [source]." |
-| Loading environment guide | "Loading [language]/environments/[env].md." |
-| Applying conventions | "Applying conventions: [list what's being applied]." |
-| Saving preferences | "Saving preferences to .b-claude/preferences.md." |
-| Completion | "Convention loading complete. Active: [summary list]." |
+| Action                    | Required Announcement                                             |
+|---------------------------|-------------------------------------------------------------------|
+| Starting skill            | "Using the language skill to [configure/apply] conventions."      |
+| Detecting language        | "Detecting language... [Language] detected from [source]."        |
+| Loading base conventions  | "Loading _shared/conventions.md (universal rules)."               |
+| Loading language guide    | "Loading [language]/[language].md (base conventions)."            |
+| Detecting runtime         | "Detecting runtimes... [Runtime] detected from [source]."         |
+| Loading runtime guide     | "Loading _shared/runtimes/[runtime].md."                          |
+| Detecting framework       | "Detecting frameworks... [Framework] detected from [source]."     |
+| Loading framework guide   | "Loading [path]/[framework].md."                                  |
+| Detecting environment     | "Detecting environments... [Environment] detected from [source]." |
+| Loading environment guide | "Loading [language]/environments/[env].md."                       |
+| Applying conventions      | "Applying conventions: [list what's being applied]."              |
+| Saving preferences        | "Saving preferences to .b-claude/preferences.md."                 |
+| Completion                | "Convention loading complete. Active: [summary list]."            |
 
 ## Red Flags - You Are Rationalizing If You Think:
 
-| Thought | Reality |
-|---------|---------|
-| "I'll just apply the conventions silently" | NO. You MUST announce each step. |
-| "The user doesn't need to know what I'm loading" | WRONG. Transparency is mandatory. |
-| "I'll skip the announcement for speed" | NEVER. Announcements are non-negotiable. |
-| "I already know these conventions" | IRRELEVANT. Load and announce anyway. |
+| Thought                                           | Reality                                   |
+|---------------------------------------------------|-------------------------------------------|
+| "I'll just apply the conventions silently"        | NO. You MUST announce each step.          |
+| "The user doesn't need to know what I'm loading"  | WRONG. Transparency is mandatory.         |
+| "I'll skip the announcement for speed"            | NEVER. Announcements are non-negotiable.  |
+| "I already know these conventions"                | IRRELEVANT. Load and announce anyway.     |
 | "This is a simple project, I don't need all this" | FALSE. Every project gets full detection. |
-| "I'll combine multiple announcements" | NO. One announcement per action. |
-| "The detection is obvious" | DOESN'T MATTER. Announce it explicitly. |
+| "I'll combine multiple announcements"             | NO. One announcement per action.          |
+| "The detection is obvious"                        | DOESN'T MATTER. Announce it explicitly.   |
 
 ## How Skills Load This Module
 

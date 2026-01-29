@@ -13,39 +13,39 @@ This skill has MANDATORY requirements. You do NOT have a choice. You MUST follow
 
 ## Overview
 
-Orchestrator for all Git operations. Dispatches to the appropriate sub-module based on what the user needs. All operations are performed under the user's identity -- Claude is NEVER credited.
+Orchestrator for all Git operations. Dispatches to the appropriate submodule based on what the user needs. All operations are performed under the user's identity -- Claude is NEVER credited.
 
 ## Mandatory Announcements
 
 You MUST announce every action BEFORE taking it. No exceptions.
 
-| Action | Required Announcement |
-|--------|----------------------|
-| Starting skill | "Using the git skill for [operation]." |
-| Checking identity | "Checking git identity in preferences..." |
-| Identity found | "Git identity: [username] <[email]>" |
-| Asking identity | "Git identity not found. What is your username?" |
-| Dispatching | "Dispatching to [sub-module]..." |
-| Loading sub-module | "Loading [commit/push/branch].md." |
-| Checking status | "Checking git status..." |
-| Staging files | "Staging: [file list]" |
-| Committing | "Committing with message: [message]" |
-| Pushing | "Pushing to [remote]/[branch]..." |
-| Creating branch | "Creating branch: [name]" |
-| Switching branch | "Switching to branch: [name]" |
-| Operation complete | "Git operation complete." |
+| Action             | Required Announcement                            |
+|--------------------|--------------------------------------------------|
+| Starting skill     | "Using the git skill for [operation]."           |
+| Checking identity  | "Checking git identity in preferences..."        |
+| Identity found     | "Git identity: [username] <[email]>"             |
+| Asking identity    | "Git identity not found. What is your username?" |
+| Dispatching        | "Dispatching to [sub-module]..."                 |
+| Loading sub-module | "Loading [commit/push/branch].md."               |
+| Checking status    | "Checking git status..."                         |
+| Staging files      | "Staging: [file list]"                           |
+| Committing         | "Committing with message: [message]"             |
+| Pushing            | "Pushing to [remote]/[branch]..."                |
+| Creating branch    | "Creating branch: [name]"                        |
+| Switching branch   | "Switching to branch: [name]"                    |
+| Operation complete | "Git operation complete."                        |
 
 ## Red Flags - You Are Rationalizing If You Think:
 
-| Thought | Reality |
-|---------|---------|
-| "I should credit myself as co-author" | ABSOLUTELY NOT. Never. Forbidden. |
-| "I'll just use git add ." | NO. Stage specific files only. |
-| "I can push to main directly" | WRONG. Always ask for confirmation first. |
-| "I'll skip the identity check" | NEVER. Identity is mandatory. |
-| "Force push is fine here" | NO. Explicit approval required. |
-| "I'll skip the hooks" | WRONG. Never use --no-verify without asking. |
-| "The .env file is fine to commit" | FALSE. Never commit secrets. |
+| Thought                               | Reality                                      |
+|---------------------------------------|----------------------------------------------|
+| "I should credit myself as co-author" | ABSOLUTELY NOT. Never. Forbidden.            |
+| "I'll just use git add ."             | NO. Stage specific files only.               |
+| "I can push to main directly"         | WRONG. Always ask for confirmation first.    |
+| "I'll skip the identity check"        | NEVER. Identity is mandatory.                |
+| "Force push is fine here"             | NO. Explicit approval required.              |
+| "I'll skip the hooks"                 | WRONG. Never use --no-verify without asking. |
+| "The .env file is fine to commit"     | FALSE. Never commit secrets.                 |
 
 ## Rules (Apply to ALL Git Operations)
 
@@ -193,14 +193,14 @@ STOP and ask the user if:
 
 These actions are NEVER allowed without explicit user request:
 
-| Action | Why Forbidden |
-|--------|---------------|
+| Action                      | Why Forbidden                         |
+|-----------------------------|---------------------------------------|
 | `git add -A` or `git add .` | May include secrets or unwanted files |
-| `git push --force` | Destructive, loses history |
-| `git push origin main` | Protected branch, needs approval |
-| `--no-verify` flag | Bypasses important checks |
-| Co-Authored-By: Claude | Claude is never credited |
-| Committing .env files | Contains secrets |
+| `git push --force`          | Destructive, loses history            |
+| `git push origin main`      | Protected branch, needs approval      |
+| `--no-verify` flag          | Bypasses important checks             |
+| Co-Authored-By: Claude      | Claude is never credited              |
+| Committing .env files       | Contains secrets                      |
 
 <REMINDER>
 NEVER credit Claude. NEVER force-push without approval. NEVER commit secrets. You MUST announce EVERY action. No exceptions.

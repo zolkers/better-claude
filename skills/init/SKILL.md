@@ -17,12 +17,12 @@ This is not negotiable. This is not optional. You cannot rationalize your way ou
 
 Use the `Skill` tool to invoke. Never use Read on skill files.
 
-| Command | What It Does |
-|---------|--------------|
-| `b-claude:do` | **Main skill.** Plans → executes → reviews → commits. Use for ANY task. |
-| `b-claude:code-review` | Review code changes against conventions. |
-| `b-claude:git` | Git operations (commit, push, branch). |
-| `b-claude:init` | This skill. Establishes skill requirements. |
+| Command                | What It Does                                                            |
+|------------------------|-------------------------------------------------------------------------|
+| `b-claude:do`          | **Main skill.** Plans → executes → reviews → commits. Use for ANY task. |
+| `b-claude:code-review` | Review code changes against conventions.                                |
+| `b-claude:git`         | Git operations (commit, push, branch).                                  |
+| `b-claude:init`        | This skill. Establishes skill requirements.                             |
 
 ## The Rule
 
@@ -40,27 +40,27 @@ Respond                       Respond
 
 ## Red Flags - You Are Rationalizing If You Think:
 
-| Thought | Reality |
-|---------|---------|
-| "Simple question, no skill needed" | Check anyway. |
-| "I need context first" | Skill check comes FIRST. |
-| "Let me explore the code" | Skills tell you HOW. Check first. |
-| "This doesn't need a skill" | If one exists, use it. |
-| "I'll just do this quick thing" | Check BEFORE doing. |
-| "The skill is overkill" | Simple things get complex. Use it. |
+| Thought                            | Reality                            |
+|------------------------------------|------------------------------------|
+| "Simple question, no skill needed" | Check anyway.                      |
+| "I need context first"             | Skill check comes FIRST.           |
+| "Let me explore the code"          | Skills tell you HOW. Check first.  |
+| "This doesn't need a skill"        | If one exists, use it.             |
+| "I'll just do this quick thing"    | Check BEFORE doing.                |
+| "The skill is overkill"            | Simple things get complex. Use it. |
 
 ## When to Use Each Skill
 
-| Task | Skill |
-|------|-------|
-| "Build feature X" | `b-claude:do` |
-| "Fix bug Y" | `b-claude:do` |
-| "Add endpoint Z" | `b-claude:do` |
-| "Refactor this" | `b-claude:do` |
-| ANY implementation task | `b-claude:do` |
-| "Review my changes" | `b-claude:code-review` |
-| "Commit this" | `b-claude:git` |
-| "Push to remote" | `b-claude:git` |
+| Task                    | Skill                  |
+|-------------------------|------------------------|
+| "Build feature X"       | `b-claude:do`          |
+| "Fix bug Y"             | `b-claude:do`          |
+| "Add endpoint Z"        | `b-claude:do`          |
+| "Refactor this"         | `b-claude:do`          |
+| ANY implementation task | `b-claude:do`          |
+| "Review my changes"     | `b-claude:code-review` |
+| "Commit this"           | `b-claude:git`         |
+| "Push to remote"        | `b-claude:git`         |
 
 ## Workflow
 
@@ -75,8 +75,8 @@ For most tasks, just use `b-claude:do`. It handles everything:
 
 These are NOT commands. Loaded automatically by skills:
 
-| Module | Purpose |
-|--------|---------|
+| Module              | Purpose                                         |
+|---------------------|-------------------------------------------------|
 | `internal/language` | Detects language, frameworks, loads conventions |
 
 ## User Instructions

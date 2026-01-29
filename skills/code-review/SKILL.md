@@ -17,31 +17,31 @@ Review code changes against project conventions and language-specific rules. Pro
 
 You MUST announce every action BEFORE taking it. No exceptions.
 
-| Action | Required Announcement |
-|--------|----------------------|
-| Starting skill | "Using the code-review skill to review changes." |
-| Loading preferences | "Loading .b-claude/preferences.md." |
-| Detecting language | "Detecting language... [Language] detected." |
-| Loading conventions | "Loading [language]/[language].md conventions." |
-| Identifying changes | "Identifying changed files..." |
-| Files found | "Found [N] changed files: [list]" |
-| Reviewing file | "Reviewing [filename]..." |
-| Issue found | "Issue found: [severity] - [description]" |
-| File done | "Review of [filename] complete." |
-| Compiling report | "Compiling review report..." |
-| Verdict | "Verdict: [APPROVE/REQUEST_CHANGES/NEEDS_DISCUSSION]" |
+| Action              | Required Announcement                                 |
+|---------------------|-------------------------------------------------------|
+| Starting skill      | "Using the code-review skill to review changes."      |
+| Loading preferences | "Loading .b-claude/preferences.md."                   |
+| Detecting language  | "Detecting language... [Language] detected."          |
+| Loading conventions | "Loading [language]/[language].md conventions."       |
+| Identifying changes | "Identifying changed files..."                        |
+| Files found         | "Found [N] changed files: [list]"                     |
+| Reviewing file      | "Reviewing [filename]..."                             |
+| Issue found         | "Issue found: [severity] - [description]"             |
+| File done           | "Review of [filename] complete."                      |
+| Compiling report    | "Compiling review report..."                          |
+| Verdict             | "Verdict: [APPROVE/REQUEST_CHANGES/NEEDS_DISCUSSION]" |
 
 ## Red Flags - You Are Rationalizing If You Think:
 
-| Thought | Reality |
-|---------|---------|
-| "The changes look fine at a glance" | NO. Review every file systematically. |
-| "I wrote this code, I don't need to review it" | WRONG. Self-review is mandatory. |
-| "These are small changes" | DOESN'T MATTER. All changes get full review. |
-| "I'll just check for obvious errors" | NEVER. Check ALL criteria. |
-| "Security review is overkill for this" | FALSE. Security is ALWAYS checked. |
-| "I can skip the conventions check" | NO. Conventions compliance is mandatory. |
-| "I'll combine the review steps" | WRONG. One file at a time, announced. |
+| Thought                                        | Reality                                      |
+|------------------------------------------------|----------------------------------------------|
+| "The changes look fine at a glance"            | NO. Review every file systematically.        |
+| "I wrote this code, I don't need to review it" | WRONG. Self-review is mandatory.             |
+| "These are small changes"                      | DOESN'T MATTER. All changes get full review. |
+| "I'll just check for obvious errors"           | NEVER. Check ALL criteria.                   |
+| "Security review is overkill for this"         | FALSE. Security is ALWAYS checked.           |
+| "I can skip the conventions check"             | NO. Conventions compliance is mandatory.     |
+| "I'll combine the review steps"                | WRONG. One file at a time, announced.        |
 
 ## Process
 
@@ -170,11 +170,11 @@ Output this exact format:
 
 ## Severity Definitions
 
-| Severity | Definition | Action |
-|----------|------------|--------|
-| **CRITICAL** | Security flaw, data loss risk, crash, production blocker | MUST fix before merge |
-| **MAJOR** | Convention violation, bad pattern, missing error handling, bug | SHOULD fix before merge |
-| **MINOR** | Naming, style, small improvements | CAN defer |
+| Severity     | Definition                                                     | Action                  |
+|--------------|----------------------------------------------------------------|-------------------------|
+| **CRITICAL** | Security flaw, data loss risk, crash, production blocker       | MUST fix before merge   |
+| **MAJOR**    | Convention violation, bad pattern, missing error handling, bug | SHOULD fix before merge |
+| **MINOR**    | Naming, style, small improvements                              | CAN defer               |
 
 ## Verdict Rules
 

@@ -4,12 +4,12 @@ A Claude Code plugin for disciplined project workflows. One command to plan, exe
 
 ## Commands
 
-| Command | Description |
-|---------|-------------|
-| `/b-claude:do` | **Main command.** Plans → executes → reviews → commits. Use for ANY task. |
-| `/b-claude:code-review` | Review code changes against conventions. |
-| `/b-claude:git` | Git operations (commit, push, branch). |
-| `/b-claude:init` | Initialize skill discovery (usually auto-loaded). |
+| Command                 | Description                                                               |
+|-------------------------|---------------------------------------------------------------------------|
+| `/b-claude:do`          | **Main command.** Plans → executes → reviews → commits. Use for ANY task. |
+| `/b-claude:code-review` | Review code changes against conventions.                                  |
+| `/b-claude:git`         | Git operations (commit, push, branch).                                    |
+| `/b-claude:init`        | Initialize skill discovery (usually auto-loaded).                         |
 
 ## How It Works
 
@@ -58,15 +58,15 @@ Claude cannot skip steps, combine phases, or work silently.
 
 All languages inherit shared conventions (complexity limits, error handling, null safety, etc.).
 
-| Language | Frameworks/Libs |
-|----------|-----------------|
-| Java | Spring, Lombok, Minecraft modding |
-| JavaScript | React, Vue.js, Node.js |
-| TypeScript | React, Vue.js, Angular, Node.js |
-| Python | Turtle graphics |
-| PHP | Laravel, Symfony |
-| CSS | Tailwind, Bootstrap |
-| HTML | WCAG accessibility |
+| Language   | Frameworks/Libs                   |
+|------------|-----------------------------------|
+| Java       | Spring, Lombok, Minecraft modding |
+| JavaScript | React, Vue.js, Node.js            |
+| TypeScript | React, Vue.js, Angular, Node.js   |
+| Python     | Turtle graphics                   |
+| PHP        | Laravel, Symfony                  |
+| CSS        | Tailwind, Bootstrap               |
+| HTML       | WCAG accessibility                |
 
 ## Project Structure
 
