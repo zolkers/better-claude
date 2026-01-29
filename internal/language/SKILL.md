@@ -1,17 +1,20 @@
 ---
 name: language
-description: Use when configuring coding preferences for a language or when writing code to apply saved conventions
+type: internal
+description: Internal module for language detection and convention loading. Auto-loaded by other skills. NOT a user command.
 ---
 
-# Language
+# Language (Internal Module)
 
 <CRITICAL>
-This skill has MANDATORY requirements. You do NOT have a choice. You MUST follow every step exactly as written. This is not negotiable. This is not optional. You cannot rationalize your way out of this.
+This is an INTERNAL MODULE, not a user-facing command. It is automatically loaded by other skills (plan, do, code-review) when they need language conventions. You do NOT invoke this directly -- it is loaded as part of other skill workflows.
+
+This module has MANDATORY requirements. You do NOT have a choice. You MUST follow every step exactly as written. This is not negotiable. This is not optional. You cannot rationalize your way out of this.
 </CRITICAL>
 
 ## Overview
 
-Configure and apply language-specific coding preferences. Works in two modes: interactive configuration and automatic application.
+Internal module for language detection and convention loading. Automatically loaded by skills that need coding conventions (plan, do, code-review). NOT a user command.
 
 ## Mandatory Announcements
 
@@ -45,45 +48,19 @@ You MUST announce every action BEFORE taking it. No exceptions.
 | "I'll combine multiple announcements" | NO. One announcement per action. |
 | "The detection is obvious" | DOESN'T MATTER. Announce it explicitly. |
 
-## Mode 1: Interactive Configuration
+## How Skills Load This Module
 
-When the user invokes `/b-claude:language`:
+Other skills (plan, do, code-review) load this module automatically when they need conventions. They call it like this:
 
-**Step 1: Announce**
 ```
-"Using the language skill to configure coding preferences."
-```
-
-**Step 2: Detect or Ask**
-- If language is detectable from project files, announce: "Detecting language... [Language] detected from [package.json/composer.json/etc.]."
-- If not detectable, ask: "Which language do you want to configure?"
-- ONE question at a time. Wait for answer before proceeding.
-
-**Step 3: Load and Announce Base Guide**
-```
-"Loading [language]/[language].md (base conventions)."
+"Loading internal/language module for convention detection."
 ```
 
-**Step 4: Ask Questions from Guide**
-- Read the "Questions to Ask" section from the loaded guide.
-- Ask questions ONE AT A TIME.
-- Wait for each answer before asking the next.
-- Announce each answer: "Noted: [preference] = [value]."
+Then they follow the Automatic Application process below.
 
-**Step 5: Save Preferences**
-```
-"Saving preferences to .b-claude/preferences.md."
-```
-Then save the file.
+## Automatic Application
 
-**Step 6: Confirm Completion**
-```
-"Configuration complete. Preferences saved for [language]."
-```
-
-## Mode 2: Automatic Application
-
-When writing code and `.b-claude/preferences.md` exists, OR when code generation is requested:
+When loaded by another skill:
 
 **Step 1: Announce Start**
 ```
