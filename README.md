@@ -1,96 +1,93 @@
 # b-claude
 
-A Claude Code plugin for composable project workflows -- planning, execution, code review, language conventions, and git management.
+A Claude Code plugin for disciplined project workflows. One command to plan, execute, review, and commit.
 
-## Skills
-
-### Orchestrators (chain sub-skills)
+## Commands
 
 | Command | Description |
 |---------|-------------|
-| `/b-claude:plan` | Full planning pipeline: think + analyze + planify |
-| `/b-claude:git` | Git operations dispatcher: commit, push, branch |
-
-### Standalone Skills
-
-| Command | Description |
-|---------|-------------|
-| `/b-claude:do` | Execute an existing plan step by step |
-| `/b-claude:language` | Configure coding preferences per language |
-| `/b-claude:code-review` | Review code changes against conventions and best practices |
+| `/b-claude:do` | **Main command.** Plans → executes → reviews → commits. Use for ANY task. |
+| `/b-claude:code-review` | Review code changes against conventions. |
+| `/b-claude:git` | Git operations (commit, push, branch). |
+| `/b-claude:init` | Initialize skill discovery (usually auto-loaded). |
 
 ## How It Works
 
 ```
-/b-claude:plan "add user authentication"
-  Phase 1: think    -> Ask questions, consult language guides
-  Phase 2: analyze  -> Scan project structure, detect stack
-  Phase 3: planify  -> Create .b-claude/plan.md
+/b-claude:do "add user authentication"
 
-/b-claude:do
-  -> Reads the plan or creates if no plan exist
-  -> Asks initial preferences (emojis, git, branch strategy)
-  -> Executes step by step
-  -> Commits via /b-claude:git if enabled
+  Step 0: Preferences
+    -> Asks emojis, auto-commit, branch management (first run only)
+    -> Saves to .b-claude/preferences.md
 
-/b-claude:language
-  -> Interactive setup for language-specific conventions
-  -> Saves to .b-claude/preferences.md
+  Step 1: Check for Plan
+    -> Resumes existing plan if found
+    -> Otherwise starts planning phase
 
-/b-claude:code-review
-  -> Reviews changes against language conventions
-  -> Reports issues (CRITICAL / MAJOR / MINOR) + verdict
+  Step 2: Planning Phase (if no plan)
+    Phase 2.1: Think    -> Clarifying questions, one at a time
+    Phase 2.2: Analyze  -> Detect language, frameworks, scan project
+    Phase 2.3: Planify  -> Create .b-claude/plan.md with steps
 
-/b-claude:git
-  -> Dispatches to commit, push, or branch
-  -> Claude is never credited as co-author
+  Step 3: Execution Phase
+    -> Execute steps in batches of 3
+    -> Checkpoint after each batch
+    -> Auto-commit if enabled
+
+  Step 4: Code Review (mandatory)
+    -> Review all changes against conventions
+    -> Fix CRITICAL/MAJOR issues immediately
+
+  Step 5: Completion
+    -> Summary of work done
+    -> Push to remote if requested
 ```
+
+## Enforcement
+
+All skills follow strict enforcement patterns:
+
+- **Mandatory announcements** before every action
+- **Checkpoints** requiring user confirmation
+- **Red flags table** preventing rationalization
+- **STOP conditions** for ambiguous situations
+
+Claude cannot skip steps, combine phases, or work silently.
 
 ## Languages Supported
 
-All languages inherit shared conventions from `_shared/conventions.md` (complexity limits, error handling, null safety, testing, logging, etc.).
+All languages inherit shared conventions (complexity limits, error handling, null safety, etc.).
 
-- **Java** -- SOLID, SonarQube, annotations, Records, 4 package structure options
-  - Spring, Lombok, Minecraft modding environment
-- **JavaScript** -- ESLint, ES6+, async, DOM, modules
-- **TypeScript** -- Strict typing, generics, utility types (inherits JS)
-- **Python** -- PEP 8, Ruff, type hints, dataclasses, scripts
-  - Turtle graphics
-- **HTML** -- W3C, WCAG accessibility, semantics, SEO
-- **Cross-language frameworks** -- React, Node.js, Vue.js (JS or TS)
-- **CSS** -- BEM (Block__Element--Modifier) UX/UI responsibility
-  - Tailwind, Bootstrap
+| Language | Frameworks/Libs |
+|----------|-----------------|
+| Java | Spring, Lombok, Minecraft modding |
+| JavaScript | React, Vue.js, Node.js |
+| TypeScript | React, Vue.js, Angular, Node.js |
+| Python | Turtle graphics |
+| PHP | Laravel, Symfony |
+| CSS | Tailwind, Bootstrap |
+| HTML | WCAG accessibility |
 
-## Preferences
+## Project Structure
 
-On first run, `/b-claude:do` asks the user for:
-- Emojis in outputs (yes/no)
-- Auto-commit (yes/no) + git identity
-- Git branch strategy (gitflow, trunk-based, simple)
-
-Saved to `.b-claude/preferences.md` in the project root.
+```
+.b-claude/
+├── preferences.md    # User preferences (emojis, git config)
+└── plan.md           # Current task plan with checkboxes
+```
 
 ## Installation
 
-Add the marketplace:
-
 ```bash
+# Add marketplace
 claude plugin marketplace add zolkers/better-claude
-```
 
-Install the plugin:
-
-```bash
+# Install plugin
 claude plugin install b-claude@better-claude
-```
 
-Update later:
-
-```bash
+# Update later
 claude plugin update b-claude@better-claude
 ```
-
-Restart Claude Code. The skills will be available as `/b-claude:plan`, `/b-claude:do`, etc.
 
 ## License
 
